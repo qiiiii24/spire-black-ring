@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cw2bqi2hyo0r7"]
+
+[ext_resource type="Script" uid="uid://cvi4sygxse8ay" path="res://Scene/Battle/hand.gd" id="1_f2ekx"]
+
+[node name="Battle" type="Node2D" unique_id=1517188771]
+
+[node name="BattleUI" type="CanvasLayer" parent="." unique_id=440002795 groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI" unique_id=1149084906]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 6
+script = ExtResource("1_f2ekx")

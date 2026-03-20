@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b60dhddjgr3v1"]
+
+[ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_67a6e"]
+
+[node name="Player" type="Node2D" unique_id=1713977676]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=97899498]
+texture = ExtResource("1_67a6e")
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)

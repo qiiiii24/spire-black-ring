@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://coxnx0v6pll8k"]
+
+[ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="1_1vlho"]
+[ext_resource type="Script" uid="uid://bfkqw8vlq6nhr" path="res://Scene/CardUI/card_visuals.gd" id="1_b5ghu"]
+[ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="3_fv35c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5ghu"]
+atlas = ExtResource("1_1vlho")
+region = Rect2(133, 4, 100, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv35c"]
+atlas = ExtResource("1_1vlho")
+region = Rect2(22, 136, 86, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsuje"]
+atlas = ExtResource("3_fv35c")
+region = Rect2(743, 329, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxssv"]
+atlas = ExtResource("1_1vlho")
+region = Rect2(17, 299, 97, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qd3d"]
+atlas = ExtResource("1_1vlho")
+region = Rect2(16, 273, 96, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31xmi"]
+atlas = ExtResource("1_1vlho")
+region = Rect2(425, 184, 19, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vlho"]
+atlas = ExtResource("1_1vlho")
+region = Rect2(424, 218, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf2kb"]
+atlas = ExtResource("1_1vlho")
+region = Rect2(544, 272, 16, 16)
+
+[node name="CardVisuals" type="Control" unique_id=925948439]
+custom_minimum_size = Vector2(100, 128)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_b5ghu")
+
+[node name="Panel" type="TextureRect" parent="." unique_id=134443098]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 128.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_b5ghu")
+stretch_mode = 5
+
+[node name="Frame" type="TextureRect" parent="." unique_id=664065132]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 25.0
+offset_right = 93.0
+offset_bottom = 97.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_fv35c")
+
+[node name="Icon" type="TextureRect" parent="Frame" unique_id=980470142]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_vsuje")
+stretch_mode = 5
+
+[node name="Description" type="TextureRect" parent="." unique_id=1337963286]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 98.0
+offset_right = 99.0
+offset_bottom = 127.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_cxssv")
+
+[node name="DescriptionLabel" type="Label" parent="Description" unique_id=639094419]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 93.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 10
+text = "造成6点伤害"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardName" type="TextureRect" parent="." unique_id=968741017]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 98.0
+offset_bottom = 21.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_3qd3d")
+
+[node name="CardNameLabel" type="Label" parent="CardName" unique_id=429991998]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 95.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 8
+text = "打击"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="TextureRect" parent="." unique_id=1835262032]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 20.0
+offset_right = 23.0
+offset_bottom = 38.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_31xmi")
+
+[node name="CostLabel" type="Label" parent="Cost" unique_id=1737859038]
+layout_mode = 0
+offset_right = 19.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 12
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Type" type="TextureRect" parent="." unique_id=1738129064]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 22.0
+offset_right = 96.0
+offset_bottom = 36.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_1vlho")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TypeIcon" type="TextureRect" parent="Type" unique_id=1866410936]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_mf2kb")
+expand_mode = 1
+stretch_mode = 5
