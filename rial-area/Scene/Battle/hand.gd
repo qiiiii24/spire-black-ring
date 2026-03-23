@@ -6,7 +6,7 @@ const KNIGHT_ATTACK = preload("uid://boyhosihg18y3")
 const KNIGHT_DEFENSE = preload("uid://cvnkmkiautmud")
 
 func _ready() -> void:
-	for i in range(5):
+	for i in range(4):
 		add_card()
 
 func add_card() -> void:

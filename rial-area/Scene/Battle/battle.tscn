@@ -1,8 +1,75 @@
 [gd_scene format=3 uid="uid://cw2bqi2hyo0r7"]
 
 [ext_resource type="Script" uid="uid://cvi4sygxse8ay" path="res://Scene/Battle/hand.gd" id="1_f2ekx"]
+[ext_resource type="Texture2D" uid="uid://doqira4x0n7q5" path="res://Assets/Tileset/Background.png" id="1_yrv8y"]
+[ext_resource type="Texture2D" uid="uid://byhyr280epy3c" path="res://Assets/Tileset/Layer_0000_9.png" id="2_7lp4p"]
+[ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="2_fp6h5"]
+[ext_resource type="PackedScene" uid="uid://b76ejlka101fw" path="res://Scene/Battle/Enemies/enemy.tscn" id="3_6cv4s"]
+[ext_resource type="PackedScene" uid="uid://b60dhddjgr3v1" path="res://Scene/Battle/Player/player.tscn" id="3_eritw"]
+[ext_resource type="PackedScene" uid="uid://cflo0fckd0ef" path="res://Scene/Battle/card_target_selector.tscn" id="3_f7dt7"]
+[ext_resource type="Texture2D" uid="uid://cvuwqvw3xlthw" path="res://Assets/CardUI/cardBacks.png" id="3_yrv8y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lp4p"]
+size = Vector2(1152, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7dt7"]
+atlas = ExtResource("2_fp6h5")
+region = Rect2(14, 476, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eritw"]
+atlas = ExtResource("3_yrv8y")
+region = Rect2(14, 12, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cv4s"]
+atlas = ExtResource("3_yrv8y")
+region = Rect2(119, 413, 96, 128)
 
 [node name="Battle" type="Node2D" unique_id=1517188771]
+
+[node name="Background" type="TextureRect" parent="." unique_id=291870192]
+offset_left = -205.0
+offset_top = -550.0
+offset_right = 1360.0
+offset_bottom = 550.0
+texture = ExtResource("1_yrv8y")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Background" unique_id=488931771]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 1565.0
+offset_bottom = 1157.0
+texture = ExtResource("2_7lp4p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Background" unique_id=1962779915]
+layout_mode = 0
+offset_top = 104.0
+offset_right = 1565.0
+offset_bottom = 1204.0
+texture = ExtResource("2_7lp4p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1644988069]
+
+[node name="Enemy" parent="Enemies" unique_id=1904712886 instance=ExtResource("3_6cv4s")]
+position = Vector2(970, 438)
+
+[node name="Player" parent="." unique_id=1713977676 instance=ExtResource("3_eritw")]
+position = Vector2(186, 441)
+
+[node name="CardDropArea" type="Area2D" parent="." unique_id=704841076]
+light_mask = 2
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea" unique_id=832124996]
+position = Vector2(576, 216)
+shape = SubResource("RectangleShape2D_7lp4p")
+
+[node name="CardTargetSelector" parent="." unique_id=1620925152 instance=ExtResource("3_f7dt7")]
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=440002795 groups=["ui_layer"]]
 
@@ -13,9 +80,80 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -40.0
+offset_top = -45.0
 offset_right = 20.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 6
 script = ExtResource("1_f2ekx")
+
+[node name="费用" type="TextureRect" parent="BattleUI" unique_id=693598893]
+modulate = Color(0.95686275, 0.50980395, 0, 1)
+offset_left = 35.0
+offset_top = 438.0
+offset_right = 83.0
+offset_bottom = 486.0
+texture = SubResource("AtlasTexture_f7dt7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BattleUI/费用" unique_id=2105324751]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="抽牌堆" type="TextureRect" parent="BattleUI" unique_id=789344849]
+offset_left = 35.0
+offset_top = 518.0
+offset_right = 88.0
+offset_bottom = 590.0
+texture = SubResource("AtlasTexture_eritw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BattleUI/抽牌堆" unique_id=1276113422]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -14.0
+offset_right = 17.0
+offset_bottom = 9.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="弃牌堆" type="TextureRect" parent="BattleUI" unique_id=885280685]
+offset_left = 1073.0
+offset_top = 523.0
+offset_right = 1127.0
+offset_bottom = 602.0
+texture = SubResource("AtlasTexture_6cv4s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BattleUI/弃牌堆" unique_id=884725708]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -13.0
+offset_right = 11.0
+offset_bottom = 13.0
+grow_vertical = 0
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

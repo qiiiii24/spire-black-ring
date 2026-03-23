@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b76ejlka101fw"]
+
+[ext_resource type="Script" uid="uid://buq3r78sli2sg" path="res://Scene/Battle/Enemies/enemy.gd" id="1_whdfv"]
+[ext_resource type="SpriteFrames" uid="uid://d4bnhqb55saf7" path="res://Assets/Characters/Orc/Orc.tres" id="2_7uetd"]
+[ext_resource type="Script" uid="uid://cv6oibdxu34lt" path="res://Scene/Battle/Enemies/EnemyStateMachine/enemy_state_machine.gd" id="3_lsurp"]
+[ext_resource type="Script" uid="uid://cegwuj0qjt20q" path="res://Scene/Battle/Enemies/EnemyStateMachine/enemy_base_state.gd" id="4_kbp10"]
+[ext_resource type="Script" uid="uid://dmyb8a0dyoxmx" path="res://Scene/Battle/Enemies/EnemyStateMachine/enemy_action_state.gd" id="5_h4tto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cl4q8"]
+size = Vector2(150, 150)
+
+[node name="Enemy" type="Area2D" unique_id=1904712886]
+collision_layer = 4
+script = ExtResource("1_whdfv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=342792681]
+scale = Vector2(7, 7)
+sprite_frames = ExtResource("2_7uetd")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1995338743]
+visible = false
+shape = SubResource("RectangleShape2D_cl4q8")
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=542457470 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_lsurp")
+initial_state = NodePath("EnemyBaseState")
+
+[node name="EnemyBaseState" type="Node" parent="EnemyStateMachine" unique_id=1285417720]
+script = ExtResource("4_kbp10")
+
+[node name="EnemyActionState" type="Node" parent="EnemyStateMachine" unique_id=270365122]
+script = ExtResource("5_h4tto")
+state = 1

@@ -5,6 +5,7 @@
 [node name="Player" type="Node2D" unique_id=1713977676]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=97899498]
+scale = Vector2(7, 7)
 texture = ExtResource("1_67a6e")
 region_enabled = true
 region_rect = Rect2(0, 0, 100, 100)

@@ -21,15 +21,17 @@ signal reparent_requested(which_card_ui: CardUI)
 var original_index := 0
 var parent: Control
 var tween: Tween
+# 能否打出
 var playable := true : set = _set_playable
+# 能否交互
 var disabled := true
 
 
 func _ready() -> void:
-	#Events.card_aim_started.connect(_on_card_drag_or_aiming_started)
-	#Events.card_drag_started.connect(_on_card_drag_or_aiming_started)
-	#Events.card_drag_ended.connect(_on_card_drag_or_aim_ended)
-	#Events.card_aim_ended.connect(_on_card_drag_or_aim_ended)
+	Events.card_aim_started.connect(_on_card_drag_or_aiming_started)
+	Events.card_drag_started.connect(_on_card_drag_or_aiming_started)
+	Events.card_drag_ended.connect(_on_card_drag_or_aim_ended)
+	Events.card_aim_ended.connect(_on_card_drag_or_aim_ended)
 	card_state_machine.init(self)
 
 
@@ -42,12 +44,12 @@ func animate_to_position(new_position: Vector2, duration: float) -> void:
 	tween.tween_property(self, "global_position", new_position, duration)
 
 
-#func play() -> void:
-	#if not card:
-		#return
-	#
+func play() -> void:
+	if not card:
+		return
+	
 	#card.play(targets, char_stats, player_modifiers)
-	#queue_free()
+	queue_free()
 #
 #
 #func get_active_enemy_modifiers() -> ModifierHandler:
@@ -120,10 +122,9 @@ func _on_card_drag_or_aiming_started(used_card: CardUI) -> void:
 	disabled = true
 
 
-#func _on_card_drag_or_aim_ended(_card: CardUI) -> void:
-	#disabled = false
+func _on_card_drag_or_aim_ended(_card: CardUI) -> void:
+	disabled = false
 	#playable = char_stats.can_play_card(card)
-#
-#
+
 #func _on_char_stats_changed() -> void:
 	#playable = char_stats.can_play_card(card)

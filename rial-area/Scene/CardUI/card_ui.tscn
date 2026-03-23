@@ -16,6 +16,8 @@ size = Vector2(100, 128)
 custom_minimum_size = Vector2(100, 128)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 128.0
 script = ExtResource("1_kod2h")
 
 [node name="CardVisuals" parent="." unique_id=925948439 instance=ExtResource("2_81c2h")]
@@ -25,7 +27,8 @@ offset_bottom = 128.0
 mouse_filter = 2
 
 [node name="DropPointDetector" type="Area2D" parent="." unique_id=1573789103]
-visible = false
+collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector" unique_id=302524449]
 position = Vector2(50, 64)
@@ -65,3 +68,5 @@ text = "Base"
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]

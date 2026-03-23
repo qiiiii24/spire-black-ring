@@ -1,6 +1,6 @@
 extends CardState
 
-const MOUSE_Y_SNAPBACK_THRESHOLD := 138
+const MOUSE_Y_SNAPBACK_THRESHOLD := 550
 
 
 func enter() -> void:
@@ -9,14 +9,13 @@ func enter() -> void:
 	offset.x -= card_ui.size.x / 2
 	card_ui.animate_to_position(card_ui.parent.global_position + offset, 0.2)
 	card_ui.drop_point_detector.monitoring = false
-	#Events.card_aim_started.emit(card_ui)
+	Events.card_aim_started.emit(card_ui)
 	
 	card_ui.state_label.text = "Aiming"
 
 
 func exit() -> void:
-	pass
-	#Events.card_aim_ended.emit(card_ui)
+	Events.card_aim_ended.emit(card_ui)
 
 
 func on_input(event: InputEvent) -> void:	
