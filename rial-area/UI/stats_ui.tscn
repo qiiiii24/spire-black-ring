@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c53rxxyli635v"]
+
+[ext_resource type="Script" uid="uid://dgydr3uwf7yqe" path="res://UI/stats_ui.gd" id="1_3ljec"]
+[ext_resource type="PackedScene" uid="uid://dqvjs4jl0cxw" path="res://UI/health_ui.tscn" id="1_covqt"]
+
+[node name="StatsUI" type="HBoxContainer" unique_id=2000782502]
+offset_right = 163.0
+offset_bottom = 50.0
+script = ExtResource("1_3ljec")
+
+[node name="HealthUI" parent="." unique_id=1970007012 instance=ExtResource("1_covqt")]
+layout_mode = 2
+
+[node name="BlockUI" type="HBoxContainer" parent="." unique_id=700485338]
+layout_mode = 2
+
+[node name="BlockImage" type="TextureRect" parent="BlockUI" unique_id=1019028207]
+layout_mode = 2
+
+[node name="BlockLabel" type="Label" parent="BlockUI" unique_id=1470563388]
+unique_name_in_owner = true
+layout_mode = 2

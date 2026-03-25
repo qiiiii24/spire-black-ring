@@ -1,11 +1,19 @@
 [gd_scene format=3 uid="uid://b60dhddjgr3v1"]
 
-[ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_67a6e"]
+[ext_resource type="Script" uid="uid://dc1g0rclliyw4" path="res://Scene/Battle/Player/player.gd" id="1_wg0f7"]
+[ext_resource type="SpriteFrames" uid="uid://bx8ie6rwhmpjg" path="res://Assets/Characters/Knight/Knight.tres" id="2_4x8g6"]
+[ext_resource type="PackedScene" uid="uid://c53rxxyli635v" path="res://UI/stats_ui.tscn" id="3_5blde"]
 
 [node name="Player" type="Node2D" unique_id=1713977676]
+script = ExtResource("1_wg0f7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=97899498]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1049957629]
 scale = Vector2(7, 7)
-texture = ExtResource("1_67a6e")
-region_enabled = true
-region_rect = Rect2(0, 0, 100, 100)
+sprite_frames = ExtResource("2_4x8g6")
+animation = &"idle"
+
+[node name="StatsUI" parent="." unique_id=2000782502 instance=ExtResource("3_5blde")]
+offset_left = -70.0
+offset_top = 55.0
+offset_right = 93.0
+offset_bottom = 105.0

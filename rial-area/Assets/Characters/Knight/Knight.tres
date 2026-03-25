@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bx8ie6rwhmpjg"]
+
+[ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_e0vvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3kn1"]
+atlas = ExtResource("1_e0vvi")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fafdi"]
+atlas = ExtResource("1_e0vvi")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0whe"]
+atlas = ExtResource("1_e0vvi")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qktvi"]
+atlas = ExtResource("1_e0vvi")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh1pk"]
+atlas = ExtResource("1_e0vvi")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odx8c"]
+atlas = ExtResource("1_e0vvi")
+region = Rect2(500, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3kn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fafdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0whe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qktvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh1pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odx8c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]

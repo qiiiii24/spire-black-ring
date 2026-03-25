@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://dihojl55ly617"]
+
+[ext_resource type="SpriteFrames" uid="uid://d4bnhqb55saf7" path="res://Assets/Characters/Orc/Orc.tres" id="1_6pbn1"]
+[ext_resource type="Script" uid="uid://ccht23nmxu4ia" path="res://Custom_resources/enemy_stats.gd" id="1_k1ev6"]
+
+[resource]
+script = ExtResource("1_k1ev6")
+max_health = 50
+art = ExtResource("1_6pbn1")
+metadata/_custom_type_script = "uid://ccht23nmxu4ia"

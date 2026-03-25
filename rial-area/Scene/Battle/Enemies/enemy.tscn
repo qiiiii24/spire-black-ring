@@ -2,20 +2,25 @@
 
 [ext_resource type="Script" uid="uid://buq3r78sli2sg" path="res://Scene/Battle/Enemies/enemy.gd" id="1_whdfv"]
 [ext_resource type="SpriteFrames" uid="uid://d4bnhqb55saf7" path="res://Assets/Characters/Orc/Orc.tres" id="2_7uetd"]
+[ext_resource type="Resource" uid="uid://dihojl55ly617" path="res://Custom_resources/Enemies/Orc.tres" id="2_kbp10"]
 [ext_resource type="Script" uid="uid://cv6oibdxu34lt" path="res://Scene/Battle/Enemies/EnemyStateMachine/enemy_state_machine.gd" id="3_lsurp"]
 [ext_resource type="Script" uid="uid://cegwuj0qjt20q" path="res://Scene/Battle/Enemies/EnemyStateMachine/enemy_base_state.gd" id="4_kbp10"]
 [ext_resource type="Script" uid="uid://dmyb8a0dyoxmx" path="res://Scene/Battle/Enemies/EnemyStateMachine/enemy_action_state.gd" id="5_h4tto"]
+[ext_resource type="PackedScene" uid="uid://c53rxxyli635v" path="res://UI/stats_ui.tscn" id="6_kbp10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cl4q8"]
 size = Vector2(150, 150)
 
-[node name="Enemy" type="Area2D" unique_id=1904712886]
+[node name="Enemy" type="Area2D" unique_id=1904712886 groups=["enemies"]]
 collision_layer = 4
 script = ExtResource("1_whdfv")
+stats = ExtResource("2_kbp10")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=342792681]
+position = Vector2(-0.99999994, 0)
 scale = Vector2(7, 7)
 sprite_frames = ExtResource("2_7uetd")
+animation = &"idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1995338743]
@@ -32,3 +37,9 @@ script = ExtResource("4_kbp10")
 [node name="EnemyActionState" type="Node" parent="EnemyStateMachine" unique_id=270365122]
 script = ExtResource("5_h4tto")
 state = 1
+
+[node name="StatsUI" parent="." unique_id=2000782502 groups=["enemies"] instance=ExtResource("6_kbp10")]
+offset_left = -83.0
+offset_top = 56.0
+offset_right = 80.0
+offset_bottom = 106.0

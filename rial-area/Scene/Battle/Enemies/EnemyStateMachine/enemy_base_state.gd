@@ -1,4 +1,7 @@
 extends EnemyState
 
 func enter() -> void:
-	enemy.animated_sprite_2d.play("default")
+	if not is_node_ready():
+		await ready
+	
+	enemy.animated_sprite_2d.play("idle")

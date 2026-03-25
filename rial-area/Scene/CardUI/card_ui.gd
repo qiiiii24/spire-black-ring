@@ -10,7 +10,8 @@ signal reparent_requested(which_card_ui: CardUI)
 #
 #@export var player_modifiers: ModifierHandler
 @export var card: Card : set = _set_card
-#@export var char_stats: CharacterStats : set = _set_char_stats
+@export var char_stats: CharacterStats : set = _set_char_stats
+
 #
 @onready var card_visuals: CardVisuals = $CardVisuals
 @onready var drop_point_detector: Area2D = $DropPointDetector
@@ -43,12 +44,18 @@ func animate_to_position(new_position: Vector2, duration: float) -> void:
 	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "global_position", new_position, duration)
 
+func _set_char_stats(value: CharacterStats) -> void:
+	char_stats = value
+	if char_stats == null:
+		return
+	char_stats.stats_changed.connect(_on_char_stats_changed)
+	_on_char_stats_changed()
 
 func play() -> void:
 	if not card:
 		return
 	
-	#card.play(targets, char_stats, player_modifiers)
+	card.play(targets, char_stats)
 	queue_free()
 #
 #
@@ -126,5 +133,5 @@ func _on_card_drag_or_aim_ended(_card: CardUI) -> void:
 	disabled = false
 	#playable = char_stats.can_play_card(card)
 
-#func _on_char_stats_changed() -> void:
-	#playable = char_stats.can_play_card(card)
+func _on_char_stats_changed() -> void:
+	playable = char_stats.can_play_card(card)

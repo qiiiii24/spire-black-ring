@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cw2bqi2hyo0r7"]
 
 [ext_resource type="Script" uid="uid://cvi4sygxse8ay" path="res://Scene/Battle/hand.gd" id="1_f2ekx"]
+[ext_resource type="Script" uid="uid://w3n2im67ti0w" path="res://Scene/Battle/battle.gd" id="1_xmcx8"]
 [ext_resource type="Texture2D" uid="uid://doqira4x0n7q5" path="res://Assets/Tileset/Background.png" id="1_yrv8y"]
 [ext_resource type="Texture2D" uid="uid://byhyr280epy3c" path="res://Assets/Tileset/Layer_0000_9.png" id="2_7lp4p"]
 [ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="2_fp6h5"]
@@ -8,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://b60dhddjgr3v1" path="res://Scene/Battle/Player/player.tscn" id="3_eritw"]
 [ext_resource type="PackedScene" uid="uid://cflo0fckd0ef" path="res://Scene/Battle/card_target_selector.tscn" id="3_f7dt7"]
 [ext_resource type="Texture2D" uid="uid://cvuwqvw3xlthw" path="res://Assets/CardUI/cardBacks.png" id="3_yrv8y"]
+[ext_resource type="Resource" uid="uid://dp4apcv68hpcq" path="res://Custom_resources/Character/Knight.tres" id="5_xmcx8"]
+[ext_resource type="Script" uid="uid://nhajslkfhpe6" path="res://Scene/Battle/battle_ui.gd" id="7_ow8i6"]
+[ext_resource type="Script" uid="uid://cvfiw0bytc4es" path="res://Scene/Battle/player_handler.gd" id="8_e1yk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lp4p"]
 size = Vector2(1152, 432)
@@ -25,6 +29,8 @@ atlas = ExtResource("3_yrv8y")
 region = Rect2(119, 413, 96, 128)
 
 [node name="Battle" type="Node2D" unique_id=1517188771]
+script = ExtResource("1_xmcx8")
+char_stats = ExtResource("5_xmcx8")
 
 [node name="Background" type="TextureRect" parent="." unique_id=291870192]
 offset_left = -205.0
@@ -71,7 +77,12 @@ shape = SubResource("RectangleShape2D_7lp4p")
 
 [node name="CardTargetSelector" parent="." unique_id=1620925152 instance=ExtResource("3_f7dt7")]
 
+[node name="PlayerHandler" type="Node" parent="." unique_id=1722688514 node_paths=PackedStringArray("hand")]
+script = ExtResource("8_e1yk6")
+hand = NodePath("../BattleUI/Hand")
+
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=440002795 groups=["ui_layer"]]
+script = ExtResource("7_ow8i6")
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI" unique_id=1149084906]
 anchors_preset = 7

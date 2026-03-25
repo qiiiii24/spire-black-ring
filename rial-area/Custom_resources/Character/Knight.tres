@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://dp4apcv68hpcq"]
+
+[ext_resource type="SpriteFrames" uid="uid://bx8ie6rwhmpjg" path="res://Assets/Characters/Knight/Knight.tres" id="1_nio7d"]
+[ext_resource type="Script" uid="uid://b33l1ini6n5sy" path="res://Custom_resources/character_stats.gd" id="1_tfkyr"]
+[ext_resource type="Texture2D" uid="uid://cvuwqvw3xlthw" path="res://Assets/CardUI/cardBacks.png" id="2_86fpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sflr"]
+atlas = ExtResource("2_86fpy")
+
+[resource]
+script = ExtResource("1_tfkyr")
+character_name = "Knight"
+description = "111"
+portrait = SubResource("AtlasTexture_5sflr")
+cards_per_turn = 4
+max_mana = 10
+max_health = 60
+art = ExtResource("1_nio7d")
+metadata/_custom_type_script = "uid://b33l1ini6n5sy"

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dqvjs4jl0cxw"]
+
+[ext_resource type="Script" uid="uid://bs5o0my86p1ed" path="res://UI/health_ui.gd" id="1_21wld"]
+[ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="1_nc0x1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21wld"]
+atlas = ExtResource("1_nc0x1")
+region = Rect2(429, 148, 13, 12)
+
+[node name="HealthUI" type="HBoxContainer" unique_id=1970007012]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_21wld")
+show_max_hp = true
+
+[node name="HealthImage" type="TextureRect" parent="." unique_id=720349071]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = SubResource("AtlasTexture_21wld")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="." unique_id=2008921497]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "16"
+
+[node name="MaxHealthLabel" type="Label" parent="." unique_id=1131486342]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "/50"

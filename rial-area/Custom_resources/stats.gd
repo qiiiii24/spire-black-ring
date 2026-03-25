@@ -5,10 +5,10 @@ signal stats_changed
 
 ## 最大生命值
 @export var max_health := 1 : set = set_max_health
-@export var art: Texture
+@export var art: SpriteFrames
 
 ## 生命值
-var health: int : set = set_health
+var health: int = max_health : set = set_health
 ## 防御值
 var block: int : set = set_block
 
@@ -22,7 +22,7 @@ func set_max_health(value : int) -> void:
 	max_health = value
 	
 	if diff > 0: # 如果最大生命值增加health也加上增加的值
-		health += diff
+		health = health + diff
 	elif health > max_health: # 如果最大生命值减少导致小于当前health就让health等于max_health
 		health = max_health
 	
