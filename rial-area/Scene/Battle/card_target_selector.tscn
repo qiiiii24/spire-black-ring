@@ -6,7 +6,7 @@
 size = Vector2(4, 4)
 
 [sub_resource type="Curve" id="Curve_0juhj"]
-_data = [Vector2(0.006109979, 0.20263696), 0.0, 0.0, 0, 0, Vector2(0.9409369, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.12021375), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.10948706), 0.0, 0.0, 0, 0, Vector2(0.9409369, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.12021375), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="CardTargetSelector" type="Node2D" unique_id=1620925152]
@@ -21,7 +21,6 @@ shape = SubResource("RectangleShape2D_c4w68")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=825304087]
 
 [node name="CardArc" type="Line2D" parent="CanvasLayer" unique_id=548633796]
-width = 4.0
 width_curve = SubResource("Curve_0juhj")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

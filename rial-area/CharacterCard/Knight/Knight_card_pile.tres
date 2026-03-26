@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardPile" format=3 uid="uid://bddu2e8ekakaf"]
+
+[ext_resource type="Script" uid="uid://oj0fkj45xcnv" path="res://Custom_resources/card.gd" id="1_gwpe3"]
+[ext_resource type="Resource" uid="uid://boyhosihg18y3" path="res://CharacterCard/Knight/Cards/knight_attack.tres" id="2_8vcsq"]
+[ext_resource type="Resource" uid="uid://cvnkmkiautmud" path="res://CharacterCard/Knight/Cards/knight_defense.tres" id="3_74t1j"]
+[ext_resource type="Script" uid="uid://iw4d65i722r1" path="res://Custom_resources/card_pile.gd" id="4_ny4aa"]
+
+[resource]
+script = ExtResource("4_ny4aa")
+cards = Array[ExtResource("1_gwpe3")]([ExtResource("2_8vcsq"), ExtResource("2_8vcsq"), ExtResource("2_8vcsq"), ExtResource("2_8vcsq"), ExtResource("2_8vcsq"), ExtResource("3_74t1j"), ExtResource("3_74t1j"), ExtResource("3_74t1j"), ExtResource("3_74t1j"), ExtResource("3_74t1j")])
+metadata/_custom_type_script = "uid://iw4d65i722r1"

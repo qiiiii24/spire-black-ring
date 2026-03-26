@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dbxty27q4pw37"]
+
+[ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="1_lu7sp"]
+[ext_resource type="Script" uid="uid://5ytm3gbi7fyo" path="res://UI/mana_ui.gd" id="2_nt0up"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7dt7"]
+atlas = ExtResource("1_lu7sp")
+region = Rect2(14, 476, 94, 122)
+
+[node name="ManaUI" type="TextureRect" unique_id=1383757784]
+modulate = Color(0.95686275, 0.50980395, 0, 1)
+offset_right = 48.0
+offset_bottom = 48.0
+texture = SubResource("AtlasTexture_f7dt7")
+expand_mode = 1
+script = ExtResource("2_nt0up")
+
+[node name="ManaLabel" type="Label" parent="." unique_id=1577665317]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3/10"
+horizontal_alignment = 1
+vertical_alignment = 1

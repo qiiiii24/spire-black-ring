@@ -7,25 +7,29 @@ class_name CharacterStats
 @export var portrait: Texture
 
 @export_group("Gameplay Data")
-#@export var starting_deck: CardPile
-#@export var draftable_cards: CardPile
+## 战斗初始卡组
+@export var starting_deck: CardPile
+## 角色可以抽的卡组
+@export var draftable_cards: CardPile
 @export var cards_per_turn: int
 @export var max_mana: int
 #@export var starting_relic: Relic
 
 var mana: int : set = set_mana
-#var deck: CardPile
-#var discard: CardPile
-#var draw_pile: CardPile
+var deck: CardPile
+# 抽牌堆
+var discard: CardPile
+# 弃牌堆
+var draw_pile: CardPile
 
 
 func set_mana(value: int) -> void:
-	mana = value
+	mana = clamp(value, 0, max_mana)
 	stats_changed.emit()
 
 
 func reset_mana() -> void:
-	mana = max_mana
+	mana = 3
 
 
 func take_damage(damage: int) -> void:
@@ -44,7 +48,7 @@ func create_instance() -> Resource:
 	instance.health = max_health
 	instance.block = 0
 	instance.reset_mana()
-	#instance.deck = instance.starting_deck.duplicate()
-	#instance.draw_pile = CardPile.new()
-	#instance.discard = CardPile.new()
+	instance.deck = instance.starting_deck.duplicate()
+	instance.draw_pile = CardPile.new()
+	instance.discard = CardPile.new()
 	return instance

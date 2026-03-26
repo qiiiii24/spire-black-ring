@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://w3n2im67ti0w" path="res://Scene/Battle/battle.gd" id="1_xmcx8"]
 [ext_resource type="Texture2D" uid="uid://doqira4x0n7q5" path="res://Assets/Tileset/Background.png" id="1_yrv8y"]
 [ext_resource type="Texture2D" uid="uid://byhyr280epy3c" path="res://Assets/Tileset/Layer_0000_9.png" id="2_7lp4p"]
-[ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="2_fp6h5"]
 [ext_resource type="PackedScene" uid="uid://b76ejlka101fw" path="res://Scene/Battle/Enemies/enemy.tscn" id="3_6cv4s"]
 [ext_resource type="PackedScene" uid="uid://b60dhddjgr3v1" path="res://Scene/Battle/Player/player.tscn" id="3_eritw"]
 [ext_resource type="PackedScene" uid="uid://cflo0fckd0ef" path="res://Scene/Battle/card_target_selector.tscn" id="3_f7dt7"]
@@ -12,13 +11,10 @@
 [ext_resource type="Resource" uid="uid://dp4apcv68hpcq" path="res://Custom_resources/Character/Knight.tres" id="5_xmcx8"]
 [ext_resource type="Script" uid="uid://nhajslkfhpe6" path="res://Scene/Battle/battle_ui.gd" id="7_ow8i6"]
 [ext_resource type="Script" uid="uid://cvfiw0bytc4es" path="res://Scene/Battle/player_handler.gd" id="8_e1yk6"]
+[ext_resource type="PackedScene" uid="uid://dbxty27q4pw37" path="res://UI/mana_ui.tscn" id="11_e1yk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lp4p"]
 size = Vector2(1152, 432)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f7dt7"]
-atlas = ExtResource("2_fp6h5")
-region = Rect2(14, 476, 94, 122)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eritw"]
 atlas = ExtResource("3_yrv8y")
@@ -65,7 +61,7 @@ stretch_mode = 5
 position = Vector2(970, 438)
 
 [node name="Player" parent="." unique_id=1713977676 instance=ExtResource("3_eritw")]
-position = Vector2(186, 441)
+position = Vector2(181, 449)
 
 [node name="CardDropArea" type="Area2D" parent="." unique_id=704841076]
 light_mask = 2
@@ -85,6 +81,7 @@ hand = NodePath("../BattleUI/Hand")
 script = ExtResource("7_ow8i6")
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI" unique_id=1149084906]
+custom_minimum_size = Vector2(105, 128)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -99,26 +96,11 @@ grow_vertical = 0
 theme_override_constants/separation = 6
 script = ExtResource("1_f2ekx")
 
-[node name="费用" type="TextureRect" parent="BattleUI" unique_id=693598893]
-modulate = Color(0.95686275, 0.50980395, 0, 1)
-offset_left = 35.0
-offset_top = 438.0
-offset_right = 83.0
-offset_bottom = 486.0
-texture = SubResource("AtlasTexture_f7dt7")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="BattleUI/费用" unique_id=2105324751]
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "3/10"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="ManaUI" parent="BattleUI" unique_id=1383757784 instance=ExtResource("11_e1yk6")]
+offset_left = 33.0
+offset_top = 444.0
+offset_right = 81.0
+offset_bottom = 492.0
 
 [node name="抽牌堆" type="TextureRect" parent="BattleUI" unique_id=789344849]
 offset_left = 35.0
