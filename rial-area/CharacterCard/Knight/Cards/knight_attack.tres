@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Card" format=3 uid="uid://boyhosihg18y3"]
+[gd_resource type="Resource" format=3 uid="uid://boyhosihg18y3"]
 
-[ext_resource type="Script" uid="uid://oj0fkj45xcnv" path="res://Custom_resources/card.gd" id="1_86kbh"]
 [ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_mq1sf"]
+[ext_resource type="Script" uid="uid://dymeid2serxx1" path="res://CharacterCard/Knight/Cards/knight_attack.gd" id="2_y5p6y"]
 [ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="3_y5p6y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5p6y"]
@@ -13,7 +13,7 @@ atlas = ExtResource("3_y5p6y")
 region = Rect2(544, 272, 16, 16)
 
 [resource]
-script = ExtResource("1_86kbh")
+script = ExtResource("2_y5p6y")
 card_name = "打击"
 target = 1
 cost = 1

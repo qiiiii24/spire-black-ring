@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://oj0fkj45xcnv" path="res://Custom_resources/card.gd" id="1_gwpe3"]
 [ext_resource type="Resource" uid="uid://boyhosihg18y3" path="res://CharacterCard/Knight/Cards/knight_attack.tres" id="2_8vcsq"]
-[ext_resource type="Resource" uid="uid://cvnkmkiautmud" path="res://CharacterCard/Knight/Cards/knight_defense.tres" id="3_74t1j"]
+[ext_resource type="Resource" uid="uid://cvnkmkiautmud" path="res://CharacterCard/Knight/Cards/knight_block.tres" id="3_74t1j"]
 [ext_resource type="Script" uid="uid://iw4d65i722r1" path="res://Custom_resources/card_pile.gd" id="4_ny4aa"]
 
 [resource]

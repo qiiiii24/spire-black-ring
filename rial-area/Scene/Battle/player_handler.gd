@@ -23,7 +23,7 @@ func start_battle(char_stats: CharacterStats) -> void:
 
 func start_turn() -> void:
 	character.block = 0
-	character.reset_mana()
+	#character.reset_mana()
 	draw_cards(character.cards_per_turn)
 
 
@@ -60,6 +60,7 @@ func discard_cards() -> void:
 		func():
 			Events.player_hand_discarded.emit()
 	)
+
 
 
 func reshuffle_deck_from_discard() -> void:

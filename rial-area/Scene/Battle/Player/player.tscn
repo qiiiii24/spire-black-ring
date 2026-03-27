@@ -3,17 +3,36 @@
 [ext_resource type="Script" uid="uid://dc1g0rclliyw4" path="res://Scene/Battle/Player/player.gd" id="1_wg0f7"]
 [ext_resource type="SpriteFrames" uid="uid://bx8ie6rwhmpjg" path="res://Assets/Characters/Knight/Knight.tres" id="2_4x8g6"]
 [ext_resource type="PackedScene" uid="uid://c53rxxyli635v" path="res://UI/stats_ui.tscn" id="3_5blde"]
+[ext_resource type="Script" uid="uid://dvh3nokstc3te" path="res://Scene/Battle/Player/PlayerStateMachine/player_state_machine.gd" id="4_5blde"]
+[ext_resource type="Script" uid="uid://dsh8eqiojxwx" path="res://Scene/Battle/Player/player_base_state.gd" id="5_5blde"]
+[ext_resource type="Script" uid="uid://btd2aq0n64jeo" path="res://Scene/Battle/Player/PlayerStateMachine/player_action_state.gd" id="6_gfmtq"]
+[ext_resource type="Script" uid="uid://cnroefia77s2g" path="res://Scene/Battle/Player/PlayerStateMachine/player_prepare_state.gd" id="6_j61lc"]
 
-[node name="Player" type="Node2D" unique_id=1713977676]
+[node name="Player" type="Node2D" unique_id=1713977676 groups=["player"]]
 script = ExtResource("1_wg0f7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1049957629]
 scale = Vector2(7, 7)
 sprite_frames = ExtResource("2_4x8g6")
-animation = &"idle"
+animation = &"prepare"
+frame_progress = 0.99821925
 
 [node name="StatsUI" parent="." unique_id=2000782502 instance=ExtResource("3_5blde")]
 offset_left = -70.0
 offset_top = 55.0
 offset_right = 93.0
 offset_bottom = 105.0
+
+[node name="PlayerStateMachine" type="Node" parent="." unique_id=1053351850 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_5blde")
+initial_state = NodePath("PlayerBaseState")
+
+[node name="PlayerBaseState" type="Node" parent="PlayerStateMachine" unique_id=1854557426]
+script = ExtResource("5_5blde")
+
+[node name="PlayerPrepareState" type="Node" parent="PlayerStateMachine" unique_id=679606750]
+script = ExtResource("6_j61lc")
+
+[node name="PlayerActionState" type="Node" parent="PlayerStateMachine" unique_id=1343664355]
+script = ExtResource("6_gfmtq")
+state = 2

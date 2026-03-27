@@ -6,8 +6,8 @@ extends Node2D
 @onready var battle_ui: BattleUI = $BattleUI
 @onready var player: Player = $Player
 @onready var player_handler: PlayerHandler = $PlayerHandler
+@onready var pass_card: Button = $BattleUI/PassCard
 
-var mana_timer := 0.0
 
 func _ready() -> void:
 	var new_stats: CharacterStats = char_stats.create_instance()
@@ -23,9 +23,8 @@ func start_battle(stats: CharacterStats) -> void:
 	player.stats = stats
 	player_handler.start_battle(stats)
 
-func _process(delta: float) -> void:
-	mana_timer += delta
-	
-	if mana_timer >= 1.0:
-		mana_timer -= 1.0
-		player.stats.mana += 1
+
+func _on_pass_card_pressed() -> void:
+	player_handler.end_turn()
+	await Events.player_hand_discarded
+	player_handler.start_turn()

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" format=3 uid="uid://cvnkmkiautmud"]
+
+[ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_xkkf1"]
+[ext_resource type="Script" uid="uid://de0v1mms5pif7" path="res://CharacterCard/Knight/Cards/knight_block.gd" id="1_xwqux"]
+[ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="3_xhsv5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yy20"]
+atlas = ExtResource("1_xkkf1")
+region = Rect2(141, 434, 15, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg1ll"]
+atlas = ExtResource("3_xhsv5")
+region = Rect2(638, 308, 24, 27)
+
+[resource]
+script = ExtResource("1_xwqux")
+card_name = "防御"
+type = 1
+cost = 1
+icon = SubResource("AtlasTexture_5yy20")
+type_icon = SubResource("AtlasTexture_wg1ll")
+tooltip_text = "获得5点防御"
+metadata/_custom_type_script = "uid://oj0fkj45xcnv"

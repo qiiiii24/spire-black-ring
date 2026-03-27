@@ -25,7 +25,7 @@ var tween: Tween
 # 能否打出
 var playable := true : set = _set_playable
 # 能否交互
-var disabled := true
+var disabled := false
 
 
 func _ready() -> void:
@@ -131,7 +131,8 @@ func _on_card_drag_or_aiming_started(used_card: CardUI) -> void:
 
 func _on_card_drag_or_aim_ended(_card: CardUI) -> void:
 	disabled = false
-	#playable = char_stats.can_play_card(card)
+	
+	playable = char_stats.can_play_card(card)
 
 func _on_char_stats_changed() -> void:
 	playable = char_stats.can_play_card(card)

@@ -58,7 +58,7 @@ stretch_mode = 5
 [node name="Enemies" type="Node2D" parent="." unique_id=1644988069]
 
 [node name="Enemy" parent="Enemies" unique_id=1904712886 instance=ExtResource("3_6cv4s")]
-position = Vector2(970, 438)
+position = Vector2(830, 438)
 
 [node name="Player" parent="." unique_id=1713977676 instance=ExtResource("3_eritw")]
 position = Vector2(181, 449)
@@ -150,3 +150,13 @@ grow_vertical = 0
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PassCard" type="Button" parent="BattleUI" unique_id=1041086130]
+offset_left = 1060.0
+offset_top = 447.0
+offset_right = 1100.0
+offset_bottom = 478.0
+theme_override_font_sizes/font_size = 24
+text = "过牌"
+
+[connection signal="pressed" from="BattleUI/PassCard" to="." method="_on_pass_card_pressed"]

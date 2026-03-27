@@ -21,4 +21,11 @@ func _on_card_ui_reparent_requested(child : CardUI) -> void:
 	child.reparent(self)
 	var new_index := clampi(child.original_index , 0, get_child_count())
 	move_child.call_deferred(child, new_index)
-	#child.set_deferred("disabled",false)#在当前帧的末尾将disabled改成false
+	child.set_deferred("disabled",false)#在当前帧的末尾将disabled改成false
+
+func discard_card(card: CardUI) -> void:
+	card.queue_free()
+
+func disable_hand() -> void:
+	for card: CardUI in get_children():
+		card.disabled = true
