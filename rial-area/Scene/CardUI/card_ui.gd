@@ -57,8 +57,8 @@ func play() -> void:
 	
 	card.play(targets, char_stats)
 	queue_free()
-#
-#
+
+
 #func get_active_enemy_modifiers() -> ModifierHandler:
 	#if targets.is_empty() or targets.size() > 1 or not targets[0] is Enemy:
 		#return null

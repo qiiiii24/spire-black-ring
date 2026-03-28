@@ -5,7 +5,7 @@ class_name BattleUI
 
 @onready var hand: Hand = $Hand
 @onready var mana_ui: ManaUI = $ManaUI
-@onready var pass_card: Button = $PassCard
+
 
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value

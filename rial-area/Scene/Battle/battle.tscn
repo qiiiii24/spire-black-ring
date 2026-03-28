@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://nhajslkfhpe6" path="res://Scene/Battle/battle_ui.gd" id="7_ow8i6"]
 [ext_resource type="Script" uid="uid://cvfiw0bytc4es" path="res://Scene/Battle/player_handler.gd" id="8_e1yk6"]
 [ext_resource type="PackedScene" uid="uid://dbxty27q4pw37" path="res://UI/mana_ui.tscn" id="11_e1yk6"]
+[ext_resource type="Script" uid="uid://ciihv3aw0qd1f" path="res://Scene/Battle/pass_card_button.gd" id="13_q20lb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lp4p"]
 size = Vector2(1152, 432)
@@ -58,10 +59,10 @@ stretch_mode = 5
 [node name="Enemies" type="Node2D" parent="." unique_id=1644988069]
 
 [node name="Enemy" parent="Enemies" unique_id=1904712886 instance=ExtResource("3_6cv4s")]
-position = Vector2(830, 438)
+position = Vector2(868, 406)
 
 [node name="Player" parent="." unique_id=1713977676 instance=ExtResource("3_eritw")]
-position = Vector2(181, 449)
+position = Vector2(181, 417)
 
 [node name="CardDropArea" type="Area2D" parent="." unique_id=704841076]
 light_mask = 2
@@ -151,12 +152,13 @@ text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PassCard" type="Button" parent="BattleUI" unique_id=1041086130]
+[node name="PassCardButton" type="Button" parent="BattleUI" unique_id=1041086130]
 offset_left = 1060.0
 offset_top = 447.0
 offset_right = 1100.0
 offset_bottom = 478.0
 theme_override_font_sizes/font_size = 24
 text = "过牌"
+script = ExtResource("13_q20lb")
 
-[connection signal="pressed" from="BattleUI/PassCard" to="." method="_on_pass_card_pressed"]
+[connection signal="pressed" from="BattleUI/PassCardButton" to="." method="_on_pass_card_pressed"]

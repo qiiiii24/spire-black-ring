@@ -1,6 +1,8 @@
 extends Node2D
 class_name Player
 
+const MANA_SPEED : int = 2
+
 @export var stats: CharacterStats : set = set_character_stats
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -47,8 +49,8 @@ func update_stats() -> void:
 func add_mana(delta: float) -> void:
 	mana_timer += delta
 	
-	if mana_timer >= 1.0:
-		mana_timer -= 1.0
+	if mana_timer >= MANA_SPEED:
+		mana_timer -= MANA_SPEED
 		stats.mana += 1
 
 func take_damage(damage: int) -> void:
