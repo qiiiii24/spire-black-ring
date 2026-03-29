@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bks430degddyh"]
+
+[ext_resource type="Texture2D" uid="uid://gjyltvd0fp24" path="res://Assets/UI/tile_0106.png" id="1_8yxru"]
+[ext_resource type="Script" uid="uid://e6sxd6cjgcy4" path="res://UI/intent_ui.gd" id="1_g54vo"]
+[ext_resource type="Shader" uid="uid://bwvm0g0xgbbwd" path="res://UI/Shader/intent_progress_bar.gdshader" id="1_j3nyr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g54vo"]
+shader = ExtResource("1_j3nyr")
+shader_parameter/stamina = 0.7230000343425
+shader_parameter/stamina_color = Color(0.35, 0.8, 0.35, 1)
+shader_parameter/bg_color = Color(0.08, 0.08, 0.08, 0.6)
+shader_parameter/inner_radius = 0.4130000196175
+shader_parameter/outer_radius = 0.82
+shader_parameter/start_angle_deg = -90.0
+shader_parameter/max_angle_deg = 360.0
+shader_parameter/edge_softness = 0.01110000051997
+shader_parameter/shine_strength = 0.0
+shader_parameter/empty_alpha = 1.0
+
+[node name="IntentUI" type="HBoxContainer" unique_id=1484470741]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_g54vo")
+
+[node name="CoolDownTimer" type="ColorRect" parent="." unique_id=74125535]
+material = SubResource("ShaderMaterial_g54vo")
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="IntentIcon" type="TextureRect" parent="." unique_id=2115860858]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_8yxru")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Number" type="Label" parent="." unique_id=134133797]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "6"

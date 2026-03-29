@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Intent" format=3 uid="uid://dbky12y3wl3lg"]
+
+[ext_resource type="Script" uid="uid://2vfv43ll3h5d" path="res://Custom_resources/intent.gd" id="1_ukg0h"]
+[ext_resource type="Texture2D" uid="uid://cnmjk4jdijft4" path="res://Assets/UI/tile_0102.png" id="1_xd68v"]
+
+[resource]
+script = ExtResource("1_ukg0h")
+number = "4"
+icon = ExtResource("1_xd68v")
+cooldowntime = 3.0
+metadata/_custom_type_script = "uid://2vfv43ll3h5d"

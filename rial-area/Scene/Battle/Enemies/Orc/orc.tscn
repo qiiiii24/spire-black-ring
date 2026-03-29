@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dooyh4bnbvakx"]
+
+[ext_resource type="PackedScene" uid="uid://b76ejlka101fw" path="res://Scene/Battle/Enemies/enemy.tscn" id="1_511w4"]
+[ext_resource type="Script" uid="uid://b3qbuxiakse6c" path="res://Scene/Battle/Enemies/Orc/orc_attack_action.gd" id="2_mhpgh"]
+[ext_resource type="Script" uid="uid://d4bqprwjsj2fx" path="res://Scene/Battle/Enemies/Orc/orc_block_action.gd" id="3_mhpgh"]
+[ext_resource type="Resource" uid="uid://c3bq4qo4ivipg" path="res://Scene/Battle/Enemies/Orc/orc_attack.tres" id="3_vrbee"]
+[ext_resource type="Resource" uid="uid://dbky12y3wl3lg" path="res://Scene/Battle/Enemies/Orc/orc_block.tres" id="4_cnuip"]
+
+[node name="Orc" unique_id=1904712886 instance=ExtResource("1_511w4")]
+
+[node name="OrcAttackAction" type="Node" parent="EnemyActionPicker" parent_id_path=PackedInt32Array(1610534062) index="0" unique_id=1807801484]
+script = ExtResource("2_mhpgh")
+intent = ExtResource("3_vrbee")
+type = 1
+chance_weight = 1.0
+
+[node name="OrcBlockAction" type="Node" parent="EnemyActionPicker" parent_id_path=PackedInt32Array(1610534062) index="1" unique_id=1272302680]
+script = ExtResource("3_mhpgh")
+intent = ExtResource("4_cnuip")
+type = 1
+chance_weight = 1.0

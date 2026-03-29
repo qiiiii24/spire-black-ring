@@ -14,7 +14,7 @@ script = ExtResource("1_21wld")
 show_max_hp = true
 
 [node name="HealthImage" type="TextureRect" parent="." unique_id=720349071]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = SubResource("AtlasTexture_21wld")
 expand_mode = 1
@@ -23,11 +23,11 @@ stretch_mode = 5
 [node name="HealthLabel" type="Label" parent="." unique_id=2008921497]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 24
 text = "16"
 
 [node name="MaxHealthLabel" type="Label" parent="." unique_id=1131486342]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 24
 text = "/50"
