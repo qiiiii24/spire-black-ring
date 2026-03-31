@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g54vo"]
 shader = ExtResource("1_j3nyr")
-shader_parameter/stamina = 0.7230000343425
+shader_parameter/stamina = 1.0
 shader_parameter/stamina_color = Color(0.35, 0.8, 0.35, 1)
 shader_parameter/bg_color = Color(0.08, 0.08, 0.08, 0.6)
 shader_parameter/inner_radius = 0.4130000196175
@@ -23,6 +23,7 @@ offset_bottom = 40.0
 script = ExtResource("1_g54vo")
 
 [node name="CoolDownTimer" type="ColorRect" parent="." unique_id=74125535]
+visible = false
 material = SubResource("ShaderMaterial_g54vo")
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2

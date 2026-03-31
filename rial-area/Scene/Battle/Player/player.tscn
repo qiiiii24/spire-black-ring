@@ -14,8 +14,7 @@ script = ExtResource("1_wg0f7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1049957629]
 scale = Vector2(7, 7)
 sprite_frames = ExtResource("2_4x8g6")
-animation = &"prepare"
-frame_progress = 0.99821925
+animation = &"attack"
 
 [node name="StatsUI" parent="." unique_id=2000782502 instance=ExtResource("3_5blde")]
 offset_left = -70.0
@@ -32,6 +31,7 @@ script = ExtResource("5_5blde")
 
 [node name="PlayerPrepareState" type="Node" parent="PlayerStateMachine" unique_id=679606750]
 script = ExtResource("6_j61lc")
+state = 1
 
 [node name="PlayerActionState" type="Node" parent="PlayerStateMachine" unique_id=1343664355]
 script = ExtResource("6_gfmtq")

@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-const MANA_SPEED : int = 2
+const MANA_SPEED : int = 1
 
 @export var stats: CharacterStats : set = set_character_stats
 
@@ -72,4 +72,3 @@ func take_damage(damage: int) -> void:
 				Events.player_died.emit()
 				queue_free()
 				)
-		

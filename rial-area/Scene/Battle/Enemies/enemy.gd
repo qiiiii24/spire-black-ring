@@ -5,22 +5,19 @@ const ARROW_OFFSET := 5
 
 @export var stats: EnemyStats : set = set_enemy_stats
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2d
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
 @onready var stats_ui: StatsUI = $StatsUI
 @onready var arrow: Sprite2D = $Arrow
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var enemy_action_picker: EnemyActionPicker = $EnemyActionPicker
+
 @onready var intent_ui: IntentUI = $IntentUI
 
-var current_action: EnemyAction : set = set_current_action
+#var current_state: EnemyState : set = set_current_state
 
 func _ready() -> void:
 	enemy_state_machine.init(self)
-	update_action()
-	
-	await get_tree().create_timer(3).timeout
-	current_action.perform_action()
+	#update_state()
 
 func _physics_process(delta: float) -> void:
 	enemy_state_machine.physics_process(delta)
@@ -50,27 +47,27 @@ func update_enemy() -> void:
 	update_stats()
 
 func setup_ai() -> void:
-	enemy_action_picker.enemy = self
+	enemy_state_machine.enemy = self
 
 func update_stats() -> void:
 	stats_ui.update_stats(stats)
 
-func update_action() -> void:
-	if not enemy_action_picker:
-		return
-	
-	if not current_action:
-		current_action = enemy_action_picker.get_action()
-		return
-	
-	var new_conditional_action := enemy_action_picker.get_first_conditional_action()
-	if new_conditional_action and current_action != new_conditional_action:
-		current_action = new_conditional_action
+#func update_state() -> void:
+	#if not enemy_state_machine:
+		#return
+	#
+	#if not current_state:
+		#current_state = enemy_state_machine.get_state()
+		#return
+	#
+	#var new_conditional_state := enemy_state_machine.get_first_conditional_state()
+	#if new_conditional_state and current_state != new_conditional_state:
+		#current_state = new_conditional_state
 
-func set_current_action(value: EnemyAction) -> void:
-	current_action = value
-	if current_action:
-		intent_ui.update_intent(current_action.intent)
+#func set_current_state(value: EnemyState) -> void:
+	#current_state = value
+	#if current_state:
+		#intent_ui.update_intent(current_state.intent)
 
 func take_damage(damage: int) -> void:
 	if stats.health <= 0:

@@ -12,6 +12,7 @@ func enter() -> void:
 		return
 		
 	#Events.tooltip_hide_requested.emit()
+	Events.card_release.emit()
 	card_ui.play()
 	
 

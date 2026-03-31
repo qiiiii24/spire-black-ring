@@ -31,7 +31,7 @@ func process(delta: float) -> void:
 func _on_transition_requested(from: PlayerState, to: PlayerState.State) -> void:
 	if from != current_state:
 		return
-		
+	
 	var new_state: PlayerState = states[to]
 	if not new_state:
 		return

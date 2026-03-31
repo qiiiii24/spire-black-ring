@@ -19,6 +19,7 @@ func _ready() -> void:
 	start_battle(new_stats)
 	
 	Events.player_hand_drawn.connect(open_pass_button)
+	Events.player_hand_discarded.connect(start_turn)
 	
 
 func start_battle(stats: CharacterStats) -> void:
@@ -33,7 +34,9 @@ func _on_pass_card_pressed() -> void:
 	player.stats.mana -= pass_card_button.COST
 	pass_card_button.passing = true
 	player_handler.end_turn()
-	await Events.player_hand_discarded
+
+
+func start_turn() -> void:
 	player_handler.start_turn()
 
 func open_pass_button() -> void:
