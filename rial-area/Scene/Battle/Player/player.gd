@@ -11,6 +11,8 @@ const MANA_SPEED : int = 1
 
 var mana_timer := 0.0
 
+var can_be_parried : bool = true
+
 func _ready() -> void:
 	player_state_machine.init(self)
 
