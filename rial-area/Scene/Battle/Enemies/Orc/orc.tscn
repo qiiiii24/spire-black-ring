@@ -3,6 +3,3 @@
 [ext_resource type="PackedScene" uid="uid://b76ejlka101fw" path="res://Scene/Battle/Enemies/enemy.tscn" id="1_511w4"]
 
 [node name="Orc" unique_id=1904712886 instance=ExtResource("1_511w4")]
-
-[node name="AnimatedSprite2d" parent="." index="0" unique_id=1224740092]
-animation = &"hit"

@@ -52,19 +52,19 @@ region = Rect2(500, 300, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uikto"]
 atlas = ExtResource("1_ublaw")
-region = Rect2(0, 500, 100, 100)
+region = Rect2(0, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1fk8"]
 atlas = ExtResource("1_ublaw")
-region = Rect2(100, 500, 100, 100)
+region = Rect2(100, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v754y"]
 atlas = ExtResource("1_ublaw")
-region = Rect2(200, 500, 100, 100)
+region = Rect2(200, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kt5sx"]
 atlas = ExtResource("1_ublaw")
-region = Rect2(300, 500, 100, 100)
+region = Rect2(300, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lly0j"]
 atlas = ExtResource("1_ublaw")

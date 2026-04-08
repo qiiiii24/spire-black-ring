@@ -21,7 +21,7 @@ size = Vector2(125, 125)
 script = ExtResource("9_bcj8b")
 number = "4*2"
 icon = ExtResource("8_q5f3q")
-cooldown_range = Vector2(3, 5)
+cooldown_range = Vector2(2, 3)
 metadata/_custom_type_script = "uid://2vfv43ll3h5d"
 
 [sub_resource type="Resource" id="Resource_komh0"]
@@ -40,7 +40,9 @@ stats = ExtResource("2_kbp10")
 position = Vector2(-0.99999994, 0)
 scale = Vector2(7, 7)
 sprite_frames = ExtResource("2_7uetd")
-animation = &"attack"
+animation = &"hit"
+frame = 3
+frame_progress = 1.0
 flip_h = true
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=1112982879]
@@ -72,7 +74,6 @@ chance_weight = 1.0
 script = ExtResource("10_bcj8b")
 state = 2
 intent = SubResource("Resource_komh0")
-type = 2
 chance_weight = 1.0
 
 [node name="StatsUI" parent="." unique_id=2000782502 groups=["enemies"] instance=ExtResource("6_kbp10")]

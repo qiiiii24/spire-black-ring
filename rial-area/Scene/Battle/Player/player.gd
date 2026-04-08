@@ -28,7 +28,9 @@ func set_character_stats(value: CharacterStats) -> void:
 		return
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
-
+	if not Events.enemy_died.is_connected(stats.add_experience):
+		Events.enemy_died.connect(stats.add_experience)
+	
 	update_player()
 
 ## 更新玩家的图片

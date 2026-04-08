@@ -4,7 +4,7 @@ class_name Stats
 signal stats_changed
 
 ## 最大生命值
-@export var max_health := 1 : set = set_max_health
+@export var max_health : int = 10 : set = set_max_health
 @export var art: SpriteFrames
 
 ## 生命值

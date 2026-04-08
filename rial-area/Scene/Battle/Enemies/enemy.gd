@@ -86,6 +86,7 @@ func take_damage(damage: int) -> void:
 			
 			if stats.health <= 0:
 				queue_free()
+				Events.enemy_died.emit(self)
 				)
 
 func _on_area_entered(_area: Area2D) -> void:

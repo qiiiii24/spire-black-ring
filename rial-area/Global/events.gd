@@ -33,3 +33,5 @@ signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
 # 敌人死亡
 signal enemy_died(enemy: Enemy)
+# 胜利或者失败发出
+signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)

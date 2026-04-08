@@ -7,6 +7,8 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var player_handler: PlayerHandler = $PlayerHandler
 @onready var pass_card_button: PassCardButton = $BattleUI/PassCardButton
+@onready var enemy_handler: Node2D = $EnemyHandler
+
 
 
 func _ready() -> void:
@@ -20,6 +22,9 @@ func _ready() -> void:
 	
 	Events.player_hand_drawn.connect(open_pass_button)
 	Events.player_hand_discarded.connect(start_turn)
+	Events.player_died.connect(_on_player_died)
+	Events.enemy_died.connect(enemy_handler.add_enemy)
+	enemy_handler.child_order_changed.connect(_on_enemies_child_order_changed)
 	
 
 func start_battle(stats: CharacterStats) -> void:
@@ -29,6 +34,13 @@ func start_battle(stats: CharacterStats) -> void:
 	player.stats = stats
 	player_handler.start_battle(stats)
 
+func _on_enemies_child_order_changed() -> void:
+	if enemy_handler.get_child_count() == 0:
+		pass
+		#Events.battle_over_screen_requested.emit("Victorious!", BattleOverPanel.Type.WIN)
+
+func _on_player_died() -> void:
+	Events.battle_over_screen_requested.emit("Game Over!", BattleOverPanel.Type.LOSE)
 
 func _on_pass_card_pressed() -> void:
 	player.stats.mana -= pass_card_button.COST

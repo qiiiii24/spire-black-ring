@@ -1,7 +1,7 @@
 extends Button
 class_name PassCardButton
 
-const COST : int = 4
+const COST : int = 3
 
 var stats: CharacterStats
 # 正在过牌

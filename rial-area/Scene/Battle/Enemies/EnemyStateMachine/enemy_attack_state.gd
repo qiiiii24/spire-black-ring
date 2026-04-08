@@ -55,15 +55,23 @@ func exit() -> void:
 
 func process(_delta: float) -> void:
 	if can_be_parried:
-		if target and target.can_be_parried:
+		if target is Player and target.stats.parry:
 			on_parried()
 
 
 ## 被弹反的处理
 func on_parried():
-	target.can_be_parried = false
-	
+	target.stats.parry = false
+	can_be_parried = false
+	if tween:
+		tween.kill()
+	tween = create_tween()
 	## 播放被弹反的动画
-	
-	transition_requested.emit(self, EnemyState.State.BASE)
-	Events.enemy_action_completed.emit(enemy)
+	var sprite : AnimatedSprite2D = enemy.animated_sprite_2d
+	tween.tween_callback(sprite.play.bind("hit"))
+	tween.tween_interval(get_anim_time(sprite, "hit"))
+	tween.finished.connect(
+		func():
+			transition_requested.emit(self,EnemyState.State.BASE)
+			Events.enemy_action_completed.emit(enemy)
+			)

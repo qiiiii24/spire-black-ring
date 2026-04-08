@@ -7,12 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://b60dhddjgr3v1" path="res://Scene/Battle/Player/player.tscn" id="3_eritw"]
 [ext_resource type="PackedScene" uid="uid://cflo0fckd0ef" path="res://Scene/Battle/card_target_selector.tscn" id="3_f7dt7"]
 [ext_resource type="Texture2D" uid="uid://cvuwqvw3xlthw" path="res://Assets/CardUI/cardBacks.png" id="3_yrv8y"]
+[ext_resource type="Script" uid="uid://db6rfawmosqrs" path="res://Scene/Battle/enemy_handler.gd" id="5_5nsey"]
 [ext_resource type="PackedScene" uid="uid://dooyh4bnbvakx" path="res://Scene/Battle/Enemies/Orc/orc.tscn" id="5_q20lb"]
 [ext_resource type="Resource" uid="uid://dp4apcv68hpcq" path="res://Custom_resources/Character/Knight.tres" id="5_xmcx8"]
 [ext_resource type="Script" uid="uid://nhajslkfhpe6" path="res://Scene/Battle/battle_ui.gd" id="7_ow8i6"]
 [ext_resource type="Script" uid="uid://cvfiw0bytc4es" path="res://Scene/Battle/player_handler.gd" id="8_e1yk6"]
 [ext_resource type="PackedScene" uid="uid://dbxty27q4pw37" path="res://UI/mana_ui.tscn" id="11_e1yk6"]
 [ext_resource type="Script" uid="uid://ciihv3aw0qd1f" path="res://Scene/Battle/pass_card_button.gd" id="13_q20lb"]
+[ext_resource type="PackedScene" uid="uid://i0apxyrd7412" path="res://UI/battle_over_panel.tscn" id="15_0fdkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lp4p"]
 size = Vector2(1152, 432)
@@ -56,9 +58,10 @@ texture = ExtResource("2_7lp4p")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Enemies" type="Node2D" parent="." unique_id=1644988069]
+[node name="EnemyHandler" type="Node2D" parent="." unique_id=1644988069]
+script = ExtResource("5_5nsey")
 
-[node name="Orc" parent="Enemies" unique_id=1904712886 instance=ExtResource("5_q20lb")]
+[node name="Orc" parent="EnemyHandler" unique_id=1904712886 instance=ExtResource("5_q20lb")]
 position = Vector2(950, 416)
 
 [node name="Player" parent="." unique_id=1713977676 instance=ExtResource("3_eritw")]
@@ -160,5 +163,11 @@ offset_bottom = 478.0
 theme_override_font_sizes/font_size = 24
 text = "过牌"
 script = ExtResource("13_q20lb")
+
+[node name="BattleOverPanel" type="CanvasLayer" parent="." unique_id=1701125409]
+layer = 2
+
+[node name="BattleOverPanel" parent="BattleOverPanel" unique_id=749843250 instance=ExtResource("15_0fdkx")]
+visible = false
 
 [connection signal="pressed" from="BattleUI/PassCardButton" to="." method="_on_pass_card_pressed"]

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" format=3 uid="uid://bt6j207ayock0"]
+
+[ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_yu22c"]
+[ext_resource type="Script" uid="uid://fj5psdp3te88" path="res://CharacterCard/Knight/Cards/knight_parry.gd" id="2_abddr"]
+[ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="3_8aypg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fp6h"]
+atlas = ExtResource("1_yu22c")
+region = Rect2(341, 434, 15, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5v21"]
+atlas = ExtResource("3_8aypg")
+region = Rect2(568, 237, 26, 26)
+
+[resource]
+script = ExtResource("2_abddr")
+card_name = "弹反"
+type = 1
+cost = 2
+exhausts = true
+icon = SubResource("AtlasTexture_0fp6h")
+type_icon = SubResource("AtlasTexture_l5v21")
+tooltip_text = "弹反"
+metadata/_custom_type_script = "uid://oj0fkj45xcnv"
