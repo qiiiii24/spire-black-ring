@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ds7wsdpueakjp"]
+
+[ext_resource type="Script" uid="uid://oul8ir7xgrmw" path="res://Scene/World/Character/character.gd" id="1_rnpe5"]
+[ext_resource type="SpriteFrames" uid="uid://bx8ie6rwhmpjg" path="res://Assets/Characters/Knight/Knight.tres" id="2_p00av"]
+[ext_resource type="Script" uid="uid://drfivgt8gmore" path="res://Scene/World/Character/StateMachine/char_state_machine.gd" id="3_uvfwg"]
+[ext_resource type="Script" uid="uid://cjpbmskmuxfy0" path="res://Scene/World/Character/StateMachine/idle_state.gd" id="4_uvfwg"]
+[ext_resource type="Script" uid="uid://coi1i3c1j77ec" path="res://Scene/World/Character/StateMachine/walk_state.gd" id="5_ayfph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ie6dj"]
+radius = 13.038404
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2029845910]
+script = ExtResource("1_rnpe5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1122918627]
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("2_p00av")
+animation = &"walk"
+frame_progress = 0.03807235
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=378405527]
+position = Vector2(-1, 8)
+shape = SubResource("CircleShape2D_ie6dj")
+
+[node name="CharStateMachine" type="Node" parent="." unique_id=616611293 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_uvfwg")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="CharStateMachine" unique_id=268093898]
+script = ExtResource("4_uvfwg")
+
+[node name="WalkState" type="Node" parent="CharStateMachine" unique_id=1199155607]
+script = ExtResource("5_ayfph")
+move_speed = 150.0
+state = 1

@@ -87,11 +87,11 @@ func recalculate_stats(current_level: int) -> void:
 		12:
 			max_health += 5
 		13:
-			max_health += 5
+			max_mana += 1
 		14:
 			max_health += 5
 		15:
-			max_mana += 1
+			draw_card_cost -= 1
 		_:
 			return
 

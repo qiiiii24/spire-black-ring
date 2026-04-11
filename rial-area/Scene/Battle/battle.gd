@@ -43,7 +43,7 @@ func _on_player_died() -> void:
 	Events.battle_over_screen_requested.emit("Game Over!", BattleOverPanel.Type.LOSE)
 
 func _on_pass_card_pressed() -> void:
-	player.stats.mana -= pass_card_button.COST
+	player.stats.mana -= pass_card_button.stats.draw_card_cost
 	pass_card_button.passing = true
 	player_handler.end_turn()
 
