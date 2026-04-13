@@ -27,7 +27,7 @@ region = Rect2(14, 12, 96, 128)
 atlas = ExtResource("3_yrv8y")
 region = Rect2(119, 413, 96, 128)
 
-[node name="Battle" type="Node2D" unique_id=1517188771]
+[node name="Battle" type="Node2D" unique_id=1517188771 groups=["battle"]]
 script = ExtResource("1_xmcx8")
 char_stats = ExtResource("5_xmcx8")
 

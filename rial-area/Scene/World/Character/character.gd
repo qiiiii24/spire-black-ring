@@ -4,6 +4,7 @@ class_name Character
 var direction : Vector2
 var facing: int = 1 # 1=右, -1=左
 
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var char_state_machine: CharStateMachine = $CharStateMachine
 
@@ -24,3 +25,9 @@ func update_facing():
 
 func update_visual():
 	animated_sprite_2d.flip_h = facing < 0
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	var parent = area.get_parent()
+	Events.start_battle.emit()
+	parent.queue_free()

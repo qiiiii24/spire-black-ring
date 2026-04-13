@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TrialArea"
-run/main_scene="uid://cw2bqi2hyo0r7"
+run/main_scene="uid://besvlki6cqsfu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -71,6 +71,11 @@ right={
 2d_physics/layer_1="card_target_selector"
 2d_physics/layer_2="card_drop_area"
 2d_physics/layer_3="Enemies"
+2d_physics/layer_4="World"
+2d_physics/layer_5="PlayerBody"
+2d_physics/layer_6="EnemyBody"
+2d_physics/layer_7="PlayerHitbox"
+2d_physics/layer_8="EnemyHitBox"
 
 [physics]
 

@@ -1,5 +1,5 @@
 extends Node
-
+#region Battle
 # 开牌瞄准开始|结束信号
 signal card_aim_started(card_ui: CardUI)
 signal card_aim_ended(card_ui: CardUI)
@@ -35,3 +35,10 @@ signal enemy_turn_ended
 signal enemy_died(enemy: Enemy)
 # 胜利或者失败发出
 signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)
+#endregion
+
+
+#region World
+signal start_battle
+
+#endregion

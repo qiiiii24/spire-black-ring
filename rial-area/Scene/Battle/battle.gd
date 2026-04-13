@@ -23,7 +23,7 @@ func _ready() -> void:
 	Events.player_hand_drawn.connect(open_pass_button)
 	Events.player_hand_discarded.connect(start_turn)
 	Events.player_died.connect(_on_player_died)
-	Events.enemy_died.connect(enemy_handler.add_enemy)
+	#Events.enemy_died.connect(enemy_handler.add_enemy)
 	enemy_handler.child_order_changed.connect(_on_enemies_child_order_changed)
 	
 
@@ -36,8 +36,7 @@ func start_battle(stats: CharacterStats) -> void:
 
 func _on_enemies_child_order_changed() -> void:
 	if enemy_handler.get_child_count() == 0:
-		pass
-		#Events.battle_over_screen_requested.emit("Victorious!", BattleOverPanel.Type.WIN)
+		Events.battle_over_screen_requested.emit("Victorious!", BattleOverPanel.Type.WIN)
 
 func _on_player_died() -> void:
 	Events.battle_over_screen_requested.emit("Game Over!", BattleOverPanel.Type.LOSE)

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bwpoa8qicb141"]
+
+[ext_resource type="SpriteFrames" uid="uid://d4bnhqb55saf7" path="res://Assets/Characters/Orc/Orc.tres" id="1_2kioa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k56jo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kioa"]
+size = Vector2(30, 45)
+
+[node name="WEnemy" type="CharacterBody2D" unique_id=653137967]
+collision_layer = 32
+collision_mask = 24
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1956604531]
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("1_2kioa")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=701063743]
+position = Vector2(1, 11)
+shape = SubResource("CircleShape2D_k56jo")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=112332252]
+collision_layer = 128
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=534230136]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_2kioa")
+debug_color = Color(0.79442114, 0.3852156, 0.4871683, 0.41960785)

@@ -54,7 +54,6 @@ func set_experience(value: int) -> void:
 	
 	if not old_level == level:
 		recalculate_stats(level)
-		print(level)
 
 func reset_mana() -> void:
 	mana = 3

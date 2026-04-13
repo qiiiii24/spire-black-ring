@@ -1,12 +1,14 @@
 [gd_scene format=4 uid="uid://besvlki6cqsfu"]
 
-[ext_resource type="Texture2D" uid="uid://ceqlyvxn6ussd" path="res://Assets/Map/Environment/Tilesets/Floors_Tiles.png" id="1_c43jr"]
-[ext_resource type="Texture2D" uid="uid://bxhcuwhqq26v2" path="res://Assets/Map/Environment/Tilesets/Wall_Variations.png" id="2_wc8rw"]
-[ext_resource type="Texture2D" uid="uid://bfb3mba0kf0q1" path="res://Assets/Map/Environment/Tilesets/Wall_Tiles.png" id="3_mvidw"]
-[ext_resource type="PackedScene" uid="uid://ds7wsdpueakjp" path="res://Scene/World/Character/character.tscn" id="4_qhkki"]
+[ext_resource type="Script" uid="uid://crnocx3e703wo" path="res://Scene/World/world.gd" id="1_lf8yd"]
+[ext_resource type="Texture2D" uid="uid://ceqlyvxn6ussd" path="res://Assets/Map/Environment/Tilesets/Floors_Tiles.png" id="2_pi7r8"]
+[ext_resource type="Texture2D" uid="uid://bxhcuwhqq26v2" path="res://Assets/Map/Environment/Tilesets/Wall_Variations.png" id="3_5qqpy"]
+[ext_resource type="Texture2D" uid="uid://bfb3mba0kf0q1" path="res://Assets/Map/Environment/Tilesets/Wall_Tiles.png" id="4_jtoul"]
+[ext_resource type="PackedScene" uid="uid://ds7wsdpueakjp" path="res://Scene/World/Character/character.tscn" id="5_k48dw"]
+[ext_resource type="PackedScene" uid="uid://bwpoa8qicb141" path="res://Scene/World/Enemy/w_enemy.tscn" id="6_su0op"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ex5br"]
-texture = ExtResource("1_c43jr")
+texture = ExtResource("2_pi7r8")
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 1
@@ -579,7 +581,7 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_ex5br")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mejs"]
-texture = ExtResource("1_c43jr")
+texture = ExtResource("2_pi7r8")
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 0
@@ -1147,7 +1149,7 @@ terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_5mejs")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ap1n"]
-texture = ExtResource("2_wc8rw")
+texture = ExtResource("3_5qqpy")
 0:7/size_in_atlas = Vector2i(2, 3)
 0:7/0 = 0
 2:6/size_in_atlas = Vector2i(4, 4)
@@ -1174,7 +1176,7 @@ texture = ExtResource("2_wc8rw")
 11:25/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81yfc"]
-texture = ExtResource("3_mvidw")
+texture = ExtResource("4_jtoul")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -1348,7 +1350,8 @@ texture = ExtResource("3_mvidw")
 sources/0 = SubResource("TileSetAtlasSource_7ap1n")
 sources/1 = SubResource("TileSetAtlasSource_81yfc")
 
-[node name="Map" type="Node2D" unique_id=17712891]
+[node name="World" type="Node2D" unique_id=17712891]
+script = ExtResource("1_lf8yd")
 
 [node name="Ground" type="Node2D" parent="." unique_id=968375909]
 
@@ -1363,5 +1366,10 @@ tile_set = SubResource("TileSet_s12we")
 [node name="Wall" type="TileMapLayer" parent="Ground" unique_id=699300061]
 tile_set = SubResource("TileSet_81yfc")
 
-[node name="CharacterBody2D" parent="." unique_id=2029845910 instance=ExtResource("4_qhkki")]
+[node name="CharacterBody2D" parent="." unique_id=2029845910 instance=ExtResource("5_k48dw")]
 position = Vector2(187, 251)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=2094132680]
+
+[node name="WEnemy" parent="Enemies" unique_id=653137967 instance=ExtResource("6_su0op")]
+position = Vector2(271, 178)
