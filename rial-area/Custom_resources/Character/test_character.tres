@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://da81qjdgifymo"]
+
+[ext_resource type="SpriteFrames" uid="uid://bx8ie6rwhmpjg" path="res://Assets/Characters/Knight/Knight.tres" id="1_0r6nm"]
+[ext_resource type="Texture2D" uid="uid://bneko230ihudu" path="res://Assets/UI/20260218171643_1.jpg" id="2_0r6nm"]
+[ext_resource type="Script" uid="uid://b33l1ini6n5sy" path="res://Custom_resources/character_stats.gd" id="3_kcibp"]
+[ext_resource type="Resource" uid="uid://bddu2e8ekakaf" path="res://CharacterCard/Knight/Knight_card_pile.tres" id="4_d7j5i"]
+
+[resource]
+script = ExtResource("3_kcibp")
+character_name = "追踪者"
+description = "111"
+portrait = ExtResource("2_0r6nm")
+starting_deck = ExtResource("4_d7j5i")
+cards_per_turn = 4
+max_mana = 3
+max_health = 100
+art = ExtResource("1_0r6nm")
+metadata/_custom_type_script = "uid://b33l1ini6n5sy"

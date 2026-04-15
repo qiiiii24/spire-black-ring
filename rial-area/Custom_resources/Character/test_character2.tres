@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://bsi0cpoe7qs2u"]
+
+[ext_resource type="SpriteFrames" uid="uid://bx8ie6rwhmpjg" path="res://Assets/Characters/Knight/Knight.tres" id="1_j42q8"]
+[ext_resource type="Texture2D" uid="uid://bys1i2k1oemv8" path="res://Assets/UI/20260218171630_1.jpg" id="2_aw1ow"]
+[ext_resource type="Script" uid="uid://b33l1ini6n5sy" path="res://Custom_resources/character_stats.gd" id="3_3tjvd"]
+[ext_resource type="Resource" uid="uid://bddu2e8ekakaf" path="res://CharacterCard/Knight/Knight_card_pile.tres" id="4_uakc3"]
+
+[resource]
+script = ExtResource("3_3tjvd")
+character_name = "小骑士"
+description = "111"
+portrait = ExtResource("2_aw1ow")
+starting_deck = ExtResource("4_uakc3")
+cards_per_turn = 4
+max_mana = 3
+max_health = 100
+art = ExtResource("1_j42q8")
+metadata/_custom_type_script = "uid://b33l1ini6n5sy"

@@ -26,7 +26,7 @@ func start_turn() -> void:
 	#character.reset_mana()
 	draw_cards(character.cards_per_turn)
 
-
+#过回合 把手牌禁用和弃牌
 func end_turn() -> void:
 	hand.disable_hand()
 	discard_cards()

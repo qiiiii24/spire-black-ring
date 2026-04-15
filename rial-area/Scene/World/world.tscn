@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bfb3mba0kf0q1" path="res://Assets/Map/Environment/Tilesets/Wall_Tiles.png" id="4_jtoul"]
 [ext_resource type="PackedScene" uid="uid://ds7wsdpueakjp" path="res://Scene/World/Character/character.tscn" id="5_k48dw"]
 [ext_resource type="PackedScene" uid="uid://bwpoa8qicb141" path="res://Scene/World/Enemy/w_enemy.tscn" id="6_su0op"]
+[ext_resource type="PackedScene" uid="uid://b5sn27obvgfgo" path="res://Scene/World/Object/camp_fire.tscn" id="7_pi7r8"]
+[ext_resource type="PackedScene" uid="uid://c5ygqgqf1il2d" path="res://Scene/World/Object/shop.tscn" id="8_5qqpy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ex5br"]
 texture = ExtResource("2_pi7r8")
@@ -1351,6 +1353,7 @@ sources/0 = SubResource("TileSetAtlasSource_7ap1n")
 sources/1 = SubResource("TileSetAtlasSource_81yfc")
 
 [node name="World" type="Node2D" unique_id=17712891]
+y_sort_enabled = true
 script = ExtResource("1_lf8yd")
 
 [node name="Ground" type="Node2D" parent="." unique_id=968375909]
@@ -1373,3 +1376,13 @@ position = Vector2(187, 251)
 
 [node name="WEnemy" parent="Enemies" unique_id=653137967 instance=ExtResource("6_su0op")]
 position = Vector2(271, 178)
+
+[node name="Object" type="Node2D" parent="." unique_id=1079710878]
+
+[node name="CampFire" parent="Object" unique_id=189426211 instance=ExtResource("7_pi7r8")]
+position = Vector2(320, 310)
+
+[node name="Shop" parent="Object" unique_id=805720437 instance=ExtResource("8_5qqpy")]
+position = Vector2(567, 189)
+
+[node name="CurrentView" type="Node" parent="." unique_id=1721923021]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5ygqgqf1il2d"]
+
+[ext_resource type="Texture2D" uid="uid://bqop4l62ctnw5" path="res://Assets/Object/shop.png" id="1_cy0sd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chv5e"]
+atlas = ExtResource("1_cy0sd")
+region = Rect2(456.10907, 95.25122, 893.82477, 637.729)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy0sd"]
+size = Vector2(268, 142)
+
+[node name="Shop" type="StaticBody2D" unique_id=805720437]
+collision_layer = 8
+collision_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=958584023]
+scale = Vector2(0.3, 0.3)
+texture = SubResource("AtlasTexture_chv5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1110156510]
+position = Vector2(-2, 25)
+shape = SubResource("RectangleShape2D_cy0sd")

@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://c3fh1wne1l1th"]
+
+[ext_resource type="Script" uid="uid://8l07mjokptab" path="res://UI/MainMenu/main_menu.gd" id="1_bddxb"]
+[ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_trkrl"]
+[ext_resource type="Texture2D" uid="uid://bd6y8grb0ymuo" path="res://Assets/Characters/Archer/Archer.png" id="2_bddxb"]
+[ext_resource type="Texture2D" uid="uid://bfvw6w8uu7r0e" path="res://Assets/Characters/Lancer/Lancer.png" id="3_iau2q"]
+[ext_resource type="Texture2D" uid="uid://b1clf3iu35sss" path="res://Assets/Characters/Orc/Orc-Idle.png" id="4_pbebc"]
+[ext_resource type="Texture2D" uid="uid://818ce7fys67v" path="res://Assets/Characters/Armored Orc/Armored Orc.png" id="5_u0e1r"]
+[ext_resource type="Texture2D" uid="uid://c1bk12fhsek1a" path="res://Assets/Characters/Skeleton/Skeleton.png" id="6_ejg71"]
+
+[sub_resource type="Gradient" id="Gradient_kf43y"]
+colors = PackedColorArray(0.24313726, 0.27450982, 0.38039216, 1, 0.09411765, 0.101960786, 0.13725491, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jld46"]
+gradient = SubResource("Gradient_kf43y")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnp6m"]
+atlas = ExtResource("1_trkrl")
+region = Rect2(141, 233, 19, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euymq"]
+atlas = ExtResource("2_bddxb")
+region = Rect2(40, 40, 22, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d5va"]
+atlas = ExtResource("3_iau2q")
+region = Rect2(233, 329, 46, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e3uo"]
+atlas = ExtResource("4_pbebc")
+region = Rect2(44, 42, 22, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h8a5"]
+atlas = ExtResource("5_u0e1r")
+region = Rect2(242, 233, 21, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xron6"]
+atlas = ExtResource("6_ejg71")
+region = Rect2(143, 42, 26, 15)
+
+[node name="MainMenu" type="Control" unique_id=585305285]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bddxb")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=1795220788]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_jld46")
+
+[node name="Title" type="Label" parent="." unique_id=529142527]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -142.0
+offset_right = 77.5
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 54
+text = "GAME"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=279966348]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -47.0
+offset_right = 68.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Continue" type="Button" parent="VBoxContainer" unique_id=443098034]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "继续游戏"
+
+[node name="NewGame" type="Button" parent="VBoxContainer" unique_id=1364931154]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "新游戏"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=311862757]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "退出"
+
+[node name="Player" type="Node2D" parent="." unique_id=219468760]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1691750392]
+position = Vector2(202, 370)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_lnp6m")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player" unique_id=1993172406]
+position = Vector2(254, 453)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_euymq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Player" unique_id=1889378817]
+position = Vector2(215, 515.00006)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_2d5va")
+
+[node name="Player2" type="Node2D" parent="." unique_id=170445148]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2" unique_id=1929319379]
+position = Vector2(859, 370)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_6e3uo")
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player2" unique_id=1087457897]
+position = Vector2(847, 453)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_8h8a5")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Player2" unique_id=1815667534]
+position = Vector2(872, 515.00006)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_xron6")
+flip_h = true
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c8n8xc6bxb4hv"]
+
+[ext_resource type="PackedScene" uid="uid://coxnx0v6pll8k" path="res://Scene/CardUI/card_visuals.tscn" id="1_hgquu"]
+
+[node name="Control" type="Control" unique_id=1675692936]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=547286753]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 55.0
+offset_right = 112.0
+offset_bottom = 78.0
+text = "商店"
+
+[node name="Gold" type="Label" parent="." unique_id=1041930999]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 69.0
+offset_right = 350.0
+offset_bottom = 92.0
+text = "114"
+
+[node name="ShopUI" type="ColorRect" parent="." unique_id=112333972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 98.0
+offset_right = -783.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.039215688, 0.0627451, 0.1254902, 1)
+
+[node name="GridContainer" type="GridContainer" parent="ShopUI" unique_id=394017060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -201.5
+offset_right = 154.0
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="CardVisuals" parent="ShopUI/GridContainer" unique_id=925948439 instance=ExtResource("1_hgquu")]
+layout_mode = 2
+
+[node name="CardVisuals2" parent="ShopUI/GridContainer" unique_id=802361000 instance=ExtResource("1_hgquu")]
+layout_mode = 2
+
+[node name="CardVisuals3" parent="ShopUI/GridContainer" unique_id=151204278 instance=ExtResource("1_hgquu")]
+layout_mode = 2
+
+[node name="CardVisuals4" parent="ShopUI/GridContainer" unique_id=1542491993 instance=ExtResource("1_hgquu")]
+layout_mode = 2
+
+[node name="CardVisuals5" parent="ShopUI/GridContainer" unique_id=564967120 instance=ExtResource("1_hgquu")]
+layout_mode = 2
+
+[node name="CardVisuals6" parent="ShopUI/GridContainer" unique_id=1944755555 instance=ExtResource("1_hgquu")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=1805186648]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 527.0
+offset_right = 339.0
+offset_bottom = 558.0
+text = "删牌"

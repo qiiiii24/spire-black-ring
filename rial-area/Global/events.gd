@@ -35,6 +35,7 @@ signal enemy_turn_ended
 signal enemy_died(enemy: Enemy)
 # 胜利或者失败发出
 signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)
+signal battle_won
 #endregion
 
 

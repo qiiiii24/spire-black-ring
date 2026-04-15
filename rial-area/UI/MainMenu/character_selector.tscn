@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://cbc6s3lxaoio2"]
+
+[ext_resource type="Script" uid="uid://bwofakqenifgc" path="res://UI/MainMenu/character_selector.gd" id="1_3nf87"]
+[ext_resource type="Theme" uid="uid://bj2q1jfitodtg" path="res://UI/MainMenu/character_button.tres" id="1_7s1u5"]
+[ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_8h0nf"]
+[ext_resource type="Texture2D" uid="uid://bneko230ihudu" path="res://Assets/UI/20260218171643_1.jpg" id="2_u1xow"]
+
+[sub_resource type="Gradient" id="Gradient_u1xow"]
+colors = PackedColorArray(0.09411765, 0.101960786, 0.13725491, 1, 0.24313726, 0.27450982, 0.38039216, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7s1u5"]
+gradient = SubResource("Gradient_u1xow")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_u1xow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s1u5"]
+atlas = ExtResource("1_8h0nf")
+region = Rect2(41.49886, 38.26316, 14.163235, 14.409035)
+
+[node name="CharacterSelector" type="Control" unique_id=1125995045]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3nf87")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=642726914]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_7s1u5")
+
+[node name="Label" type="Label" parent="." unique_id=1384258288]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 36.0
+offset_right = 172.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 32
+text = "选择角色"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1272125753]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 153.0
+offset_right = 337.0
+offset_bottom = 333.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CharacterName" type="Label" parent="VBoxContainer" unique_id=201818773]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "角色名称"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=319530174]
+layout_mode = 2
+columns = 3
+
+[node name="CharacterButton" type="Button" parent="VBoxContainer/GridContainer" unique_id=400432905]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme = ExtResource("1_7s1u5")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_u1xow")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/GridContainer/CharacterButton" unique_id=32159327]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_7s1u5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CharacterButton2" type="Button" parent="VBoxContainer/GridContainer" unique_id=19596483]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme = ExtResource("1_7s1u5")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_u1xow")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/GridContainer/CharacterButton2" unique_id=788058980]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_7s1u5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CharacterButton3" type="Button" parent="VBoxContainer/GridContainer" unique_id=407552444]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme = ExtResource("1_7s1u5")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_u1xow")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/GridContainer/CharacterButton3" unique_id=1592881610]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_7s1u5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StartButton" type="Button" parent="." unique_id=320994983]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 341.0
+offset_right = 259.0
+offset_bottom = 372.0
+text = "开始游戏"
+
+[node name="CharacterPortrait" type="TextureRect" parent="." unique_id=264851527]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 648)
+layout_mode = 0
+offset_left = 347.0
+offset_right = 994.0
+offset_bottom = 648.0
+texture = ExtResource("2_u1xow")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterButton" to="." method="_on_character_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterButton2" to="." method="_on_character_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterButton3" to="." method="_on_character_button_3_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
