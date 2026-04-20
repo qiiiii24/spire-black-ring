@@ -1,22 +1,39 @@
 [gd_scene format=3 uid="uid://c5ygqgqf1il2d"]
 
+[ext_resource type="Script" uid="uid://bv3k3g44feus7" path="res://Scene/World/Object/shop.gd" id="1_chv5e"]
 [ext_resource type="Texture2D" uid="uid://bqop4l62ctnw5" path="res://Assets/Object/shop.png" id="1_cy0sd"]
+[ext_resource type="Script" uid="uid://d1oorhixj0dwx" path="res://Scene/World/Object/shop_area.gd" id="3_fmvmy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chv5e"]
 atlas = ExtResource("1_cy0sd")
 region = Rect2(456.10907, 95.25122, 893.82477, 637.729)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cy0sd"]
-size = Vector2(268, 142)
+size = Vector2(183, 111)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_chv5e"]
+radius = 143.01399
 
 [node name="Shop" type="StaticBody2D" unique_id=805720437]
 collision_layer = 8
 collision_mask = 16
+script = ExtResource("1_chv5e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=958584023]
+position = Vector2(6, -87.45)
 scale = Vector2(0.3, 0.3)
 texture = SubResource("AtlasTexture_chv5e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1110156510]
-position = Vector2(-2, 25)
+position = Vector2(-10.5, -47.949997)
 shape = SubResource("RectangleShape2D_cy0sd")
+
+[node name="ShopArea" type="Area2D" parent="." unique_id=709603193]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("3_fmvmy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopArea" unique_id=817088130]
+position = Vector2(0, -51)
+shape = SubResource("CircleShape2D_chv5e")
+debug_color = Color(0.6096661, 0.51311785, 0.46565038, 0.41960785)

@@ -1,25 +1,48 @@
 extends Node2D
 
 const BATTLE = preload("uid://cw2bqi2hyo0r7")
+const SHOP_UI = preload("uid://c8n8xc6bxb4hv")
+
+@export var run_startup : RunStartup
 
 @onready var current_view: Node = $CurrentView
 
+var character: CharacterStats
+
 func _ready() -> void:
-	Events.start_battle.connect(start_battle, CONNECT_DEFERRED)
-
-func start_battle() -> void:
-	var battle = BATTLE.instantiate()
+	#Events.start_battle.connect(start_battle, CONNECT_DEFERRED) 这个要改
 	
-	get_tree().current_scene.add_child(battle)
+	if not run_startup:
+		print("没有startup")
+		return
+	
+	match run_startup.type:
+		RunStartup.Type.NEW_GAME:
+			character = run_startup.picked_character.create_instance()
+			_start_run()
+		RunStartup.Type.CONTINUED_GAME:
+			print("以后完成")
 
-func _change_view(scene: PackedScene) -> void:
+func _start_run() -> void:
+	_setup_event_connections()
+
+
+func _change_view(scene: PackedScene = null) -> void:
 	if current_view.get_child_count() > 0:
 		current_view.get_child(0).queue_free()
 	
+	if not scene:
+		return
 	# 暂停
 	#get_tree().paused = false
 	var new_view := scene.instantiate()
 	current_view.add_child(new_view) 
 
+
 func _setup_event_connections() -> void:
-	pass
+	Events.enter_shop.connect(_change_view.bind(SHOP_UI))
+	
+	Events.enter_battle.connect(_change_view.bind(BATTLE))
+	Events.exit_battle.connect(_change_view)
+	## 统一退出
+	Events.exit_interact.connect(_change_view)

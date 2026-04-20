@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c5agn1otfbxys"]
+
+[ext_resource type="Script" uid="uid://d28my7ml0rtrs" path="res://Scene/CardUI/card_tooltip_popup.gd" id="1_1sj7f"]
+[ext_resource type="PackedScene" uid="uid://q5nwpn0mdido" path="res://Scene/CardUI/card_menu_ui.tscn" id="1_l70xb"]
+
+[node name="CardTooltipPopup" type="Control" unique_id=1851449294]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1sj7f")
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=1656974234]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=437488202]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -89.0
+offset_right = 150.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TooltipCard" type="CenterContainer" parent="VBoxContainer" unique_id=169661349]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CardMenuUI" parent="VBoxContainer/TooltipCard" unique_id=1633100658 instance=ExtResource("1_l70xb")]
+layout_mode = 2
+
+[node name="CardDescription" type="RichTextLabel" parent="VBoxContainer" unique_id=1815794372]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "造成6点伤害造成6点伤害造成6点伤害造成6点伤害"
+fit_content = true
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

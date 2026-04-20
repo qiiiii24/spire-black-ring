@@ -19,6 +19,7 @@ func _ready() -> void:
 	pass_card_button.stats = new_stats
 	new_stats.stats_changed.connect(pass_card_button.update_button)
 	start_battle(new_stats)
+	battle_ui.initialize_card_pile_ui()
 	
 	Events.player_hand_drawn.connect(open_pass_button)
 	Events.player_hand_discarded.connect(start_turn)
@@ -53,3 +54,7 @@ func start_turn() -> void:
 func open_pass_button() -> void:
 	pass_card_button.passing = false
 	
+
+
+func _on_escape_button_pressed() -> void:
+	Events.exit_battle.emit()

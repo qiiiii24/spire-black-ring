@@ -5,12 +5,49 @@
 [ext_resource type="Script" uid="uid://drfivgt8gmore" path="res://Scene/World/Character/StateMachine/char_state_machine.gd" id="3_uvfwg"]
 [ext_resource type="Script" uid="uid://cjpbmskmuxfy0" path="res://Scene/World/Character/StateMachine/idle_state.gd" id="4_uvfwg"]
 [ext_resource type="Script" uid="uid://coi1i3c1j77ec" path="res://Scene/World/Character/StateMachine/walk_state.gd" id="5_ayfph"]
+[ext_resource type="Texture2D" uid="uid://c6cpvdtpgd27r" path="res://Assets/Keyboard/gdb-keyboard-2.png" id="6_0jgh0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ie6dj"]
 radius = 13.038404
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayfph"]
 size = Vector2(39, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhdv0"]
+atlas = ExtResource("6_0jgh0")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfb23"]
+atlas = ExtResource("6_0jgh0")
+region = Rect2(96, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyl8h"]
+atlas = ExtResource("6_0jgh0")
+region = Rect2(96, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3qrt"]
+atlas = ExtResource("6_0jgh0")
+region = Rect2(96, 384, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3rmsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhdv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfb23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyl8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3qrt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2029845910]
 collision_layer = 16
@@ -47,5 +84,13 @@ script = ExtResource("4_uvfwg")
 script = ExtResource("5_ayfph")
 move_speed = 150.0
 state = 1
+
+[node name="InteractionIcon" type="AnimatedSprite2D" parent="." unique_id=1151642747]
+visible = false
+position = Vector2(0, -48)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_3rmsy")
+autoplay = "default"
+frame_progress = 0.025190175
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -99,6 +99,9 @@ func play(targets: Array[Node], char_stats: CharacterStats) -> void:
 		apply_effects(_get_targets(targets))
 		
 
+func get_default_tooltip() -> String:
+	return tooltip_text
+
 #func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	#pass
 

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://q5nwpn0mdido"]
+
+[ext_resource type="PackedScene" uid="uid://coxnx0v6pll8k" path="res://Scene/CardUI/card_visuals.tscn" id="1_388br"]
+[ext_resource type="Script" uid="uid://lcmlju0aks7y" path="res://Scene/CardUI/card_menu_ui.gd" id="1_iuavj"]
+[ext_resource type="Resource" uid="uid://boyhosihg18y3" path="res://CharacterCard/Knight/Cards/knight_attack.tres" id="2_df4is"]
+
+[node name="CardMenuUI" type="CenterContainer" unique_id=1633100658]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_iuavj")
+card = ExtResource("2_df4is")
+
+[node name="CardVisuals" parent="." unique_id=925948439 instance=ExtResource("1_388br")]
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="gui_input" from="." to="." method="_on_visuals_gui_input"]

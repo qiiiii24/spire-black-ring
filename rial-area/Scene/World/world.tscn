@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://besvlki6cqsfu"]
 
 [ext_resource type="Script" uid="uid://crnocx3e703wo" path="res://Scene/World/world.gd" id="1_lf8yd"]
+[ext_resource type="Resource" uid="uid://brd80yx12fu3m" path="res://Scene/World/run_startup.tres" id="2_jtoul"]
 [ext_resource type="Texture2D" uid="uid://ceqlyvxn6ussd" path="res://Assets/Map/Environment/Tilesets/Floors_Tiles.png" id="2_pi7r8"]
 [ext_resource type="Texture2D" uid="uid://bxhcuwhqq26v2" path="res://Assets/Map/Environment/Tilesets/Wall_Variations.png" id="3_5qqpy"]
 [ext_resource type="Texture2D" uid="uid://bfb3mba0kf0q1" path="res://Assets/Map/Environment/Tilesets/Wall_Tiles.png" id="4_jtoul"]
@@ -1355,6 +1356,7 @@ sources/1 = SubResource("TileSetAtlasSource_81yfc")
 [node name="World" type="Node2D" unique_id=17712891]
 y_sort_enabled = true
 script = ExtResource("1_lf8yd")
+run_startup = ExtResource("2_jtoul")
 
 [node name="Ground" type="Node2D" parent="." unique_id=968375909]
 
@@ -1375,7 +1377,7 @@ position = Vector2(187, 251)
 [node name="Enemies" type="Node2D" parent="." unique_id=2094132680]
 
 [node name="WEnemy" parent="Enemies" unique_id=653137967 instance=ExtResource("6_su0op")]
-position = Vector2(271, 178)
+position = Vector2(92, 76)
 
 [node name="Object" type="Node2D" parent="." unique_id=1079710878]
 
@@ -1385,4 +1387,4 @@ position = Vector2(320, 310)
 [node name="Shop" parent="Object" unique_id=805720437 instance=ExtResource("8_5qqpy")]
 position = Vector2(567, 189)
 
-[node name="CurrentView" type="Node" parent="." unique_id=1721923021]
+[node name="CurrentView" type="Node" parent="." unique_id=1692635075]

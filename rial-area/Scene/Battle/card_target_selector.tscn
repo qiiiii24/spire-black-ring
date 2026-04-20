@@ -19,6 +19,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_c4w68")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=825304087]
+layer = 2
 
 [node name="CardArc" type="Line2D" parent="CanvasLayer" unique_id=548633796]
 width_curve = SubResource("Curve_0juhj")

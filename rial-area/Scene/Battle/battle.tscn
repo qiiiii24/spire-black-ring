@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://byhyr280epy3c" path="res://Assets/Tileset/Layer_0000_9.png" id="2_7lp4p"]
 [ext_resource type="PackedScene" uid="uid://b60dhddjgr3v1" path="res://Scene/Battle/Player/player.tscn" id="3_eritw"]
 [ext_resource type="PackedScene" uid="uid://cflo0fckd0ef" path="res://Scene/Battle/card_target_selector.tscn" id="3_f7dt7"]
-[ext_resource type="Texture2D" uid="uid://cvuwqvw3xlthw" path="res://Assets/CardUI/cardBacks.png" id="3_yrv8y"]
 [ext_resource type="Script" uid="uid://db6rfawmosqrs" path="res://Scene/Battle/enemy_handler.gd" id="5_5nsey"]
 [ext_resource type="PackedScene" uid="uid://dooyh4bnbvakx" path="res://Scene/Battle/Enemies/Orc/orc.tscn" id="5_q20lb"]
 [ext_resource type="Resource" uid="uid://dp4apcv68hpcq" path="res://Custom_resources/Character/Knight.tres" id="5_xmcx8"]
@@ -14,17 +13,18 @@
 [ext_resource type="Script" uid="uid://cvfiw0bytc4es" path="res://Scene/Battle/player_handler.gd" id="8_e1yk6"]
 [ext_resource type="PackedScene" uid="uid://dbxty27q4pw37" path="res://UI/mana_ui.tscn" id="11_e1yk6"]
 [ext_resource type="Script" uid="uid://ciihv3aw0qd1f" path="res://Scene/Battle/pass_card_button.gd" id="13_q20lb"]
+[ext_resource type="PackedScene" uid="uid://c21ibchckycnn" path="res://Scene/CardUI/card_pile_open.tscn" id="14_0fdkx"]
 [ext_resource type="PackedScene" uid="uid://i0apxyrd7412" path="res://UI/battle_over_panel.tscn" id="15_0fdkx"]
+[ext_resource type="PackedScene" uid="uid://dvx7x0rrh0x3u" path="res://Scene/CardUI/card_pile_view.tscn" id="16_w6h6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lp4p"]
 size = Vector2(1152, 432)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eritw"]
-atlas = ExtResource("3_yrv8y")
-region = Rect2(14, 12, 96, 128)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0fdkx"]
+load_path = "res://.godot/imported/cardBacks.png-72c37e0988c97a1b880803d1bcc19b18.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6cv4s"]
-atlas = ExtResource("3_yrv8y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6h6d"]
+atlas = SubResource("CompressedTexture2D_0fdkx")
 region = Rect2(119, 413, 96, 128)
 
 [node name="Battle" type="Node2D" unique_id=1517188771 groups=["battle"]]
@@ -106,55 +106,6 @@ offset_top = 444.0
 offset_right = 81.0
 offset_bottom = 492.0
 
-[node name="抽牌堆" type="TextureRect" parent="BattleUI" unique_id=789344849]
-offset_left = 35.0
-offset_top = 518.0
-offset_right = 88.0
-offset_bottom = 590.0
-texture = SubResource("AtlasTexture_eritw")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="BattleUI/抽牌堆" unique_id=1276113422]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -17.0
-offset_top = -14.0
-offset_right = 17.0
-offset_bottom = 9.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "99"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="弃牌堆" type="TextureRect" parent="BattleUI" unique_id=885280685]
-offset_left = 1073.0
-offset_top = 523.0
-offset_right = 1127.0
-offset_bottom = 602.0
-texture = SubResource("AtlasTexture_6cv4s")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="BattleUI/弃牌堆" unique_id=884725708]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -11.0
-offset_top = -13.0
-offset_right = 11.0
-offset_bottom = 13.0
-grow_vertical = 0
-text = "99"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="PassCardButton" type="Button" parent="BattleUI" unique_id=1041086130]
 offset_left = 1060.0
 offset_top = 447.0
@@ -164,10 +115,62 @@ theme_override_font_sizes/font_size = 24
 text = "过牌"
 script = ExtResource("13_q20lb")
 
+[node name="EscapeButton" type="Button" parent="BattleUI" unique_id=839653167]
+offset_left = 23.0
+offset_top = 392.0
+offset_right = 63.0
+offset_bottom = 423.0
+text = "逃跑"
+
+[node name="DrawPileButton" parent="BattleUI" unique_id=1766167453 node_paths=PackedStringArray("counter") instance=ExtResource("14_0fdkx")]
+unique_name_in_owner = true
+offset_left = 26.0
+offset_top = 525.0
+offset_right = 102.8
+offset_bottom = 627.4
+texture_normal = SubResource("AtlasTexture_w6h6d")
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="BattleUI/DrawPileButton" unique_id=1741214124]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 79.0
+offset_right = 99.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 24
+text = "99"
+
+[node name="DiscardPileButton" parent="BattleUI" unique_id=415288255 node_paths=PackedStringArray("counter") instance=ExtResource("14_0fdkx")]
+unique_name_in_owner = true
+offset_left = 1048.0
+offset_top = 525.0
+offset_right = 1124.8
+offset_bottom = 627.4
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="BattleUI/DiscardPileButton" unique_id=568393950]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 79.0
+offset_right = 27.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 24
+text = "99"
+
 [node name="BattleOverPanel" type="CanvasLayer" parent="." unique_id=1701125409]
 layer = 2
 
 [node name="BattleOverPanel" parent="BattleOverPanel" unique_id=749843250 instance=ExtResource("15_0fdkx")]
 visible = false
 
+[node name="CardPileView" type="CanvasLayer" parent="." unique_id=1169474128]
+layer = 3
+
+[node name="DrawPileView" parent="CardPileView" unique_id=1939280233 instance=ExtResource("16_w6h6d")]
+unique_name_in_owner = true
+
+[node name="DiscardPileView" parent="CardPileView" unique_id=1168482154 instance=ExtResource("16_w6h6d")]
+unique_name_in_owner = true
+
 [connection signal="pressed" from="BattleUI/PassCardButton" to="." method="_on_pass_card_pressed"]
+[connection signal="pressed" from="BattleUI/EscapeButton" to="." method="_on_escape_button_pressed"]

@@ -40,6 +40,11 @@ signal battle_won
 
 
 #region World
-signal start_battle
+signal enter_battle
+signal exit_battle
 
+signal enter_shop
+
+## 统一的退出交互
+signal exit_interact
 #endregion

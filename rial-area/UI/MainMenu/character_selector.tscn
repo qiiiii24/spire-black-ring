@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bwofakqenifgc" path="res://UI/MainMenu/character_selector.gd" id="1_3nf87"]
 [ext_resource type="Theme" uid="uid://bj2q1jfitodtg" path="res://UI/MainMenu/character_button.tres" id="1_7s1u5"]
 [ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="1_8h0nf"]
+[ext_resource type="Resource" uid="uid://brd80yx12fu3m" path="res://Scene/World/run_startup.tres" id="2_gskbg"]
 [ext_resource type="Texture2D" uid="uid://bneko230ihudu" path="res://Assets/UI/20260218171643_1.jpg" id="2_u1xow"]
 
 [sub_resource type="Gradient" id="Gradient_u1xow"]
@@ -27,6 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3nf87")
+run_startup = ExtResource("2_gskbg")
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=642726914]
 layout_mode = 1

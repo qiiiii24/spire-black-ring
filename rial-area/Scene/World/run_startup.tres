@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RunStartup" format=3 uid="uid://brd80yx12fu3m"]
+
+[ext_resource type="Resource" uid="uid://dp4apcv68hpcq" path="res://Custom_resources/Character/Knight.tres" id="1_85x5p"]
+[ext_resource type="Script" uid="uid://siabqsnphewk" path="res://Custom_resources/run_startup.gd" id="1_j63eb"]
+
+[resource]
+script = ExtResource("1_j63eb")
+picked_character = ExtResource("1_85x5p")
+metadata/_custom_type_script = "uid://siabqsnphewk"
