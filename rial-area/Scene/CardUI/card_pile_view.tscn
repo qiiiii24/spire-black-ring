@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://c5agn1otfbxys" path="res://Scene/CardUI/card_tooltip_popup.tscn" id="2_devhd"]
 
 [node name="CardPileView" type="Control" unique_id=1939280233]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -9,6 +9,8 @@ class_name CardVisuals
 @onready var cost_label: Label = $Cost/CostLabel
 @onready var type_icon: TextureRect = $Type/TypeIcon
 @onready var icon: TextureRect = $Frame/Icon
+@onready var cost: TextureRect = $Cost
+@onready var type: TextureRect = $Type
 
 func set_card(value: Card) -> void:
 	if not is_node_ready():
@@ -21,4 +23,7 @@ func set_card(value: Card) -> void:
 	cost_label.text = str(card.cost)
 	card_name_label.text = card.card_name
 	description_label.text = card.tooltip_text
+	
+	cost.self_modulate = Card.RARITY_COLORS[card.rarity]
+	type.self_modulate = Card.RARITY_COLORS[card.rarity]
 	

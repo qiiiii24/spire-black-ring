@@ -2,14 +2,29 @@
 
 [ext_resource type="Texture2D" uid="uid://d2quiwbqe5gqe" path="res://Assets/CardUI/pixelCardAssest_V01.png" id="1_1vlho"]
 [ext_resource type="Script" uid="uid://bfkqw8vlq6nhr" path="res://Scene/CardUI/card_visuals.gd" id="1_b5ghu"]
+[ext_resource type="Resource" uid="uid://bt6j207ayock0" path="res://CharacterCard/Knight/Cards/knight_parry.tres" id="2_3qd3d"]
+[ext_resource type="Shader" uid="uid://cys36qphjqa3l" path="res://UI/Shader/card_visuals.gdshader" id="3_31xmi"]
+[ext_resource type="Texture2D" uid="uid://c415xws5wdc2n" path="res://Assets/CardUI/cardvisual.png" id="3_cxssv"]
 [ext_resource type="Texture2D" uid="uid://3s0lxpyett3i" path="res://Assets/Characters/Knight/Knight.png" id="3_fv35c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mf2kb"]
+shader = ExtResource("3_31xmi")
+shader_parameter/is_open = true
+shader_parameter/outline_width1 = 0.0
+shader_parameter/outline_width2 = 1.0
+shader_parameter/outline_width3 = 2.0
+shader_parameter/outline_color1 = Color(0.03137255, 0.73333335, 0.80784315, 1)
+shader_parameter/outline_color2 = Color(0.03137255, 0.73333335, 0.80784315, 0.8)
+shader_parameter/outline_color3 = Color(0.03137255, 0.73333335, 0.80784315, 0.3019608)
+shader_parameter/anim_speed = 2.0
+shader_parameter/anim_strength = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b5ghu"]
 atlas = ExtResource("1_1vlho")
-region = Rect2(133, 4, 100, 128)
+region = Rect2(129, 0, 108, 134)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fv35c"]
-atlas = ExtResource("1_1vlho")
+atlas = ExtResource("3_cxssv")
 region = Rect2(22, 136, 86, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vsuje"]
@@ -17,19 +32,19 @@ atlas = ExtResource("3_fv35c")
 region = Rect2(743, 329, 35, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxssv"]
-atlas = ExtResource("1_1vlho")
+atlas = ExtResource("3_cxssv")
 region = Rect2(17, 299, 97, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qd3d"]
-atlas = ExtResource("1_1vlho")
+atlas = ExtResource("3_cxssv")
 region = Rect2(16, 273, 96, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_31xmi"]
-atlas = ExtResource("1_1vlho")
+atlas = ExtResource("3_cxssv")
 region = Rect2(425, 184, 19, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vlho"]
-atlas = ExtResource("1_1vlho")
+atlas = ExtResource("3_cxssv")
 region = Rect2(424, 218, 20, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mf2kb"]
@@ -41,16 +56,30 @@ custom_minimum_size = Vector2(100, 128)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_b5ghu")
+card = ExtResource("2_3qd3d")
 
 [node name="Panel" type="TextureRect" parent="." unique_id=134443098]
-layout_mode = 0
-offset_right = 100.0
-offset_bottom = 128.0
+material = SubResource("ShaderMaterial_mf2kb")
+custom_minimum_size = Vector2(109, 139)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -68.0
+offset_right = 55.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_b5ghu")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Frame" type="TextureRect" parent="." unique_id=664065132]
+self_modulate = Color(0.5411765, 0.54901963, 0.54509807, 1)
 layout_mode = 0
 offset_left = 7.0
 offset_top = 25.0
@@ -76,6 +105,7 @@ texture = SubResource("AtlasTexture_vsuje")
 stretch_mode = 5
 
 [node name="Description" type="TextureRect" parent="." unique_id=1337963286]
+self_modulate = Color(0.3647059, 0.27450982, 0.25490198, 1)
 layout_mode = 0
 offset_left = 2.0
 offset_top = 98.0
@@ -96,6 +126,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CardName" type="TextureRect" parent="." unique_id=968741017]
+self_modulate = Color(0.5411765, 0.54901963, 0.54509807, 1)
 layout_mode = 0
 offset_left = 2.0
 offset_top = 3.0

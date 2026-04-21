@@ -6,6 +6,8 @@ const SHOP_UI = preload("uid://c8n8xc6bxb4hv")
 @export var run_startup : RunStartup
 
 @onready var current_view: Node = $CurrentView
+@onready var deck_button: CardPileOpener = %DeckButton
+@onready var deck_view: CardPileView = %DeckView
 
 var character: CharacterStats
 
@@ -25,6 +27,7 @@ func _ready() -> void:
 
 func _start_run() -> void:
 	_setup_event_connections()
+	_setup_top_bar()
 
 
 func _change_view(scene: PackedScene = null) -> void:
@@ -46,3 +49,8 @@ func _setup_event_connections() -> void:
 	Events.exit_battle.connect(_change_view)
 	## 统一退出
 	Events.exit_interact.connect(_change_view)
+
+func _setup_top_bar() -> void:
+	deck_button.card_pile = character.deck
+	deck_view.card_pile = character.deck
+	deck_button.pressed.connect(deck_view.show_current_view.bind("已有手牌"))

@@ -16,6 +16,7 @@ region = Rect2(568, 237, 26, 26)
 script = ExtResource("2_abddr")
 card_name = "弹反"
 type = 1
+rarity = 2
 cost = 2
 exhausts = true
 icon = SubResource("AtlasTexture_0fp6h")

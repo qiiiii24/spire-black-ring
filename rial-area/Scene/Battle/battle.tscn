@@ -164,13 +164,15 @@ layer = 2
 visible = false
 
 [node name="CardPileView" type="CanvasLayer" parent="." unique_id=1169474128]
-layer = 3
+layer = 4
 
 [node name="DrawPileView" parent="CardPileView" unique_id=1939280233 instance=ExtResource("16_w6h6d")]
 unique_name_in_owner = true
+visible = false
 
 [node name="DiscardPileView" parent="CardPileView" unique_id=1168482154 instance=ExtResource("16_w6h6d")]
 unique_name_in_owner = true
+visible = false
 
 [connection signal="pressed" from="BattleUI/PassCardButton" to="." method="_on_pass_card_pressed"]
 [connection signal="pressed" from="BattleUI/EscapeButton" to="." method="_on_escape_button_pressed"]
