@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform bool is_open = true;
+uniform bool is_open = false;
 
 uniform float outline_width1 = 0.0;
 uniform float outline_width2 = 1.0;

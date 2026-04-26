@@ -100,9 +100,11 @@ func _set_card(value: Card) -> void:
 func _set_playable(value: bool) -> void:
 	playable = value
 	if not playable:
+		card_visuals.set_playable(false)
 		card_visuals.cost_label.add_theme_color_override("font_color", Color.RED)
 		#card_visuals.icon.modulate = Color(1, 1, 1, 0.5)
 	else:
+		card_visuals.set_playable(true)
 		card_visuals.cost_label.remove_theme_color_override("font_color")
 		#card_visuals.icon.modulate = Color(1, 1, 1, 1)
 

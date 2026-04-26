@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bx8ie6rwhmpjg" path="res://Assets/Characters/Knight/Knight.tres" id="1_nio7d"]
 [ext_resource type="Script" uid="uid://b33l1ini6n5sy" path="res://Custom_resources/character_stats.gd" id="1_tfkyr"]
 [ext_resource type="Texture2D" uid="uid://beyhnhjrhk81j" path="res://Assets/UI/20260218171616_1.jpg" id="2_5sflr"]
+[ext_resource type="Resource" uid="uid://dfdr11rb88xpp" path="res://CharacterCard/Knight/Cards/warrior_draftable_cards.tres" id="2_51256"]
 [ext_resource type="Resource" uid="uid://bddu2e8ekakaf" path="res://CharacterCard/Knight/Knight_card_pile.tres" id="4_5sflr"]
 
 [resource]
@@ -11,6 +12,7 @@ character_name = "Knight"
 description = "111"
 portrait = ExtResource("2_5sflr")
 starting_deck = ExtResource("4_5sflr")
+draftable_cards = ExtResource("2_51256")
 cards_per_turn = 4
 max_mana = 3
 max_health = 100

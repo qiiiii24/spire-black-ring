@@ -16,6 +16,7 @@ region = Rect2(638, 308, 24, 27)
 script = ExtResource("1_xwqux")
 card_name = "防御"
 type = 1
+rarity = 1
 cost = 1
 icon = SubResource("AtlasTexture_5yy20")
 type_icon = SubResource("AtlasTexture_wg1ll")

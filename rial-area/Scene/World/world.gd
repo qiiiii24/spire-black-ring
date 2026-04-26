@@ -5,11 +5,13 @@ const SHOP_UI = preload("uid://c8n8xc6bxb4hv")
 
 @export var run_startup : RunStartup
 
+@onready var gold_ui: GoldUI = %GoldUI
 @onready var current_view: Node = $CurrentView
 @onready var deck_button: CardPileOpener = %DeckButton
 @onready var deck_view: CardPileView = %DeckView
 
 var character: CharacterStats
+var stats : RunStats
 
 func _ready() -> void:
 	#Events.start_battle.connect(start_battle, CONNECT_DEFERRED) 这个要改
@@ -26,8 +28,12 @@ func _ready() -> void:
 			print("以后完成")
 
 func _start_run() -> void:
+	stats = RunStats.new()
 	_setup_event_connections()
 	_setup_top_bar()
+	
+	await get_tree().create_timer(2).timeout
+	stats.gold += 55
 
 
 func _change_view(scene: PackedScene = null) -> void:
@@ -51,6 +57,7 @@ func _setup_event_connections() -> void:
 	Events.exit_interact.connect(_change_view)
 
 func _setup_top_bar() -> void:
+	gold_ui.run_stats = stats
 	deck_button.card_pile = character.deck
 	deck_view.card_pile = character.deck
 	deck_button.pressed.connect(deck_view.show_current_view.bind("已有手牌"))

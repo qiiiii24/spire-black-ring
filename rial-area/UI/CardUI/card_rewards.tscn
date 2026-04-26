@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cs4vebagqs3dg"]
+
+[ext_resource type="PackedScene" uid="uid://q5nwpn0mdido" path="res://Scene/CardUI/card_menu_ui.tscn" id="1_2i7ir"]
+[ext_resource type="Script" uid="uid://w7c5jw2udfkr" path="res://UI/CardUI/card_rewards.gd" id="1_i1ngc"]
+[ext_resource type="Script" uid="uid://oj0fkj45xcnv" path="res://Custom_resources/card.gd" id="2_fi4hr"]
+[ext_resource type="PackedScene" uid="uid://c5agn1otfbxys" path="res://Scene/CardUI/card_tooltip_popup.tscn" id="2_i1ngc"]
+[ext_resource type="Resource" uid="uid://boyhosihg18y3" path="res://CharacterCard/Knight/Cards/knight_attack.tres" id="3_lyhqr"]
+[ext_resource type="Resource" uid="uid://cvnkmkiautmud" path="res://CharacterCard/Knight/Cards/knight_block.tres" id="4_fimjf"]
+[ext_resource type="Resource" uid="uid://bt6j207ayock0" path="res://CharacterCard/Knight/Cards/knight_parry.tres" id="5_y6m14"]
+
+[node name="CardRewards" type="ColorRect" unique_id=56229937]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.47058824)
+script = ExtResource("1_i1ngc")
+rewards = Array[ExtResource("2_fi4hr")]([ExtResource("3_lyhqr"), ExtResource("4_fimjf"), ExtResource("5_y6m14")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1185995204]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -70.0
+offset_right = 170.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Cards" type="HBoxContainer" parent="VBoxContainer" unique_id=1107905499]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CardMenuUI" parent="VBoxContainer/Cards" unique_id=1633100658 instance=ExtResource("1_2i7ir")]
+layout_mode = 2
+
+[node name="CardMenuUI2" parent="VBoxContainer/Cards" unique_id=1170489216 instance=ExtResource("1_2i7ir")]
+layout_mode = 2
+
+[node name="CardMenuUI3" parent="VBoxContainer/Cards" unique_id=234741213 instance=ExtResource("1_2i7ir")]
+layout_mode = 2
+
+[node name="SkipCardReward" type="Button" parent="VBoxContainer" unique_id=335076962]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "跳过"
+
+[node name="CardTooltipPopup" parent="." unique_id=1851449294 instance=ExtResource("2_i1ngc")]
+visible = false
+layout_mode = 1
+background_color = Color(0.45934242, 0.29792893, 0.29247698, 0.6901961)

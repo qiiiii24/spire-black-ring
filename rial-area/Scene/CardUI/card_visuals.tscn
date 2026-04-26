@@ -9,7 +9,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mf2kb"]
 shader = ExtResource("3_31xmi")
-shader_parameter/is_open = true
+shader_parameter/is_open = false
 shader_parameter/outline_width1 = 0.0
 shader_parameter/outline_width2 = 1.0
 shader_parameter/outline_width3 = 2.0

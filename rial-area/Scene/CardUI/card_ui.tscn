@@ -27,6 +27,7 @@ offset_bottom = 128.0
 mouse_filter = 2
 
 [node name="DropPointDetector" type="Area2D" parent="." unique_id=1573789103]
+visible = false
 collision_mask = 2
 monitorable = false
 

@@ -26,4 +26,9 @@ func set_card(value: Card) -> void:
 	
 	cost.self_modulate = Card.RARITY_COLORS[card.rarity]
 	type.self_modulate = Card.RARITY_COLORS[card.rarity]
-	
+
+func set_playable(can_play: bool) -> void:
+	if can_play:
+		panel.material.set_shader_parameter("is_open",true)
+	else:
+		panel.material.set_shader_parameter("is_open",false)
