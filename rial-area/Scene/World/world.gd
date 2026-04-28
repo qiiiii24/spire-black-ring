@@ -2,6 +2,7 @@ extends Node2D
 
 const BATTLE = preload("uid://cw2bqi2hyo0r7")
 const SHOP_UI = preload("uid://c8n8xc6bxb4hv")
+const BATTLE_REWARD = preload("uid://brv6wh1aqv7bv")
 
 @export var run_startup : RunStartup
 
@@ -36,7 +37,7 @@ func _start_run() -> void:
 	stats.gold += 55
 
 
-func _change_view(scene: PackedScene = null) -> void:
+func _change_view(scene: PackedScene = null) -> Node:
 	if current_view.get_child_count() > 0:
 		current_view.get_child(0).queue_free()
 	
@@ -46,11 +47,14 @@ func _change_view(scene: PackedScene = null) -> void:
 	#get_tree().paused = false
 	var new_view := scene.instantiate()
 	current_view.add_child(new_view) 
+	
+	return new_view
 
 
 func _setup_event_connections() -> void:
 	Events.enter_shop.connect(_change_view.bind(SHOP_UI))
 	
+	Events.battle_won.connect(_on_battle_won)
 	Events.enter_battle.connect(_change_view.bind(BATTLE))
 	Events.exit_battle.connect(_change_view)
 	## 统一退出
@@ -61,3 +65,11 @@ func _setup_top_bar() -> void:
 	deck_button.card_pile = character.deck
 	deck_view.card_pile = character.deck
 	deck_button.pressed.connect(deck_view.show_current_view.bind("已有手牌"))
+
+func _on_battle_won() -> void:
+	var reward_scene := _change_view(BATTLE_REWARD) as BattleReward
+	reward_scene.run_stats = stats
+	reward_scene.character_stats = character
+	
+	reward_scene.add_gold_reward(88)
+	reward_scene.add_card_reward()

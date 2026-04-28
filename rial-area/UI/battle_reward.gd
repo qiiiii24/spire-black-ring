@@ -1,23 +1,30 @@
 extends Control
+class_name BattleReward
 
 const GOLD_ICON = preload("uid://ckhm1uv0xf68l")
-const RARITY = preload("uid://crvyj5u3ynmij")
+const CARD_ICON = preload("uid://crvyj5u3ynmij")
 const GOLD_TEXT := "%s gold"
 const CARD_TEXT := "Add New Card"
 const REWARD_BUTTON = preload("uid://pfo48mb677qk")
+const CARD_REWARDS = preload("uid://cs4vebagqs3dg")
+
 
 @export var run_stats: RunStats
+@export var character_stats: CharacterStats
 
 @onready var rewards: VBoxContainer = %Rewards
+
+var card_reward_total_weight := 0.0
+var card_rarity_weights := {
+	Card.Rarity.COMMON: 0.0,
+	Card.Rarity.UNCOMMON: 0.0,
+	Card.Rarity.RARE: 0.0
+}
 
 func _ready() -> void:
 	for node: Node in rewards.get_children():
 		node.queue_free()
 	
-	run_stats = RunStats.new()
-	run_stats.gold_change.connect(func():print("gold: %s"%run_stats.gold))
-	
-	add_gold_reward(88)
 
 func add_gold_reward(amount: int) -> void:
 	var gold_reward := REWARD_BUTTON.instantiate() as RewardButton
@@ -31,6 +38,65 @@ func _on_gold_reward_taken(amount: int) -> void:
 		return
 	
 	run_stats.gold += amount
+
+func add_card_reward() -> void:
+	var card_reward := REWARD_BUTTON.instantiate() as RewardButton
+	card_reward.reward_icon = CARD_ICON
+	card_reward.reward_text = CARD_TEXT
+	card_reward.pressed.connect(_show_card_rewards)
+	rewards.add_child.call_deferred(card_reward)
+
+func _show_card_rewards() -> void:
+	if not run_stats or not character_stats: #安全检查
+		return
+	
+	var card_rewards := CARD_REWARDS.instantiate() as CardRewards
+	add_child(card_rewards)
+	card_rewards.card_reward_selected.connect(_on_card_reward_taken)
+	
+	var card_reward_array: Array[Card] = []
+	var available_cards: Array[Card] = character_stats.draftable_cards.cards.duplicate(true)
+	# 3选1 或者 4选1
+	for i in run_stats.card_rewards:
+		_setup_card_chances()
+		var roll := randf_range(0.0, card_reward_total_weight)
+		
+		for rarity: Card.Rarity in card_rarity_weights:
+			if card_rarity_weights[rarity] > roll:
+				_modify_weights(rarity)
+				var picked_card := _get_random_available_card(available_cards, rarity)
+				card_reward_array.append(picked_card)
+				available_cards.erase(picked_card) # 防止出现相同卡牌
+				break
+
+	card_rewards.rewards = card_reward_array
+	card_rewards.show()
+
+func _setup_card_chances() -> void:
+	card_reward_total_weight = run_stats.common_weight + run_stats.uncommon_weight + run_stats.rare_weight
+	card_rarity_weights[Card.Rarity.COMMON] = run_stats.common_weight
+	card_rarity_weights[Card.Rarity.UNCOMMON] = run_stats.common_weight + run_stats.uncommon_weight
+	card_rarity_weights[Card.Rarity.RARE] = card_reward_total_weight
+
+# 如果没抽到金卡，就增加抽到的概率 最高50%
+func _modify_weights(rarity_rolled: Card.Rarity) -> void:
+	if rarity_rolled == Card.Rarity.RARE:
+		run_stats.rare_weight = RunStats.BASE_RARE_WEIGHT
+	else:
+		run_stats.rare_weight = clampf(run_stats.rare_weight + 0.3, run_stats.BASE_RARE_WEIGHT, 5.0)
+
+func _get_random_available_card(available_cards: Array[Card], with_rarity: Card.Rarity) -> Card:
+	var all_possible_cards := available_cards.filter( #过滤方法只保留数组中等于true的值
+		func(card: Card):
+			return card.rarity == with_rarity
+	)
+	return all_possible_cards.pick_random()
+
+func _on_card_reward_taken(card: Card) -> void:
+	if not character_stats or not card:
+		return
+		
+	character_stats.deck.add_card(card)
 
 func _on_back_button_pressed() -> void:
 	Events.exit_interact.emit()

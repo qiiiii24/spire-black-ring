@@ -26,6 +26,7 @@ var experience : int = 100 : set = set_experience
 var level : int : 
 	get(): return floor(clamp((experience / BASE_LEVEL_XP) + 0.5, 1, 15))
 var mana: int : set = set_mana
+# 可用手牌
 var deck: CardPile
 # 弃牌堆
 var discard: CardPile

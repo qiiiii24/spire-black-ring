@@ -1,6 +1,7 @@
 extends ColorRect
 class_name CardRewards
 
+# 卡牌奖励已选择信号
 signal card_reward_selected(card: Card)
 
 const CARD_MENU_UI = preload("uid://q5nwpn0mdido")
